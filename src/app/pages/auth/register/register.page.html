@@ -11,27 +11,27 @@
         <form #form="ngForm" (ngSubmit) = "register(form)" method="POST">
           <div padding>
             <ion-item>
-              <ion-input type="text" placeholder="First Name"></ion-input>
-              <ion-input type="text" placeholder="Last Name"></ion-input>
+              <ion-input ngModel type="text" name="firstname" placeholder="First Name"></ion-input>
+              <ion-input ngModel type="text" name="lastname" placeholder="Last Name"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input type="number" placeholder="Mobile"></ion-input>
+              <ion-input ngModel type="number" name="mobile" placeholder="Mobile"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input type="email" placeholder="Email"></ion-input>
+              <ion-input ngModel type="email" name="email" placeholder="Email"></ion-input>
             </ion-item>
     
             <ion-item>
-              <ion-input type="password" placeholder="Password"></ion-input>
+              <ion-input ngModel  type="password" name="password" placeholder="Password"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input type="text" placeholder="City"></ion-input>
-              <ion-input type="number" placeholder="ZIP"></ion-input>
+              <ion-input ngModel type="text" name="city" placeholder="City"></ion-input>
+              <ion-input ngModel type="number" name="zip" placeholder="ZIP"></ion-input>
             </ion-item>
           </div>
       
         <div padding>
-          <ion-button color="secondary" expand="block">Register</ion-button>
+          <ion-button color="secondary" expand="block" type= "submit" [disabled]="form.invalid">Register</ion-button>
           
         </div>
       </form>

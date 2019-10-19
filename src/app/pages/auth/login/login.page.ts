@@ -29,30 +29,7 @@ export class LoginPage implements OnInit {
     this.http.post('https://doowahdoo-capstone.herokuapp.com/api/v1/login', {
           emailId	:	form.value.email,
           password	:	form.value.password
-    }, {headers, responseType : 'text'}).subscribe((response) => {
-      console.log(response);
-    });
-  /*
-    this.http.post('https://doowahdoo-capstone.herokuapp.com/api/v1/employees', {
-        signUp :	{
-          emailId	:	'gem@gmail.com',
-          password	:	'gemmy2'
-        },
-        userProfile : {
-          firstName : 'Gem',
-          lastName : 'Geo',
-          contactNo : '3129347351',
-          userName : 'gem2'
-        }
-    }).subscribe((response) => {
-      console.log(response);
-    });
-  */
-  }
-
-
-  login1(form: NgForm){
-    this.authservice.login(form.value.email, form.value.password).subscribe(
+    }, {headers, responseType : 'text'}).subscribe( 
       data => {
         this.alertService.presentToast("Logged In");
       },
@@ -62,6 +39,17 @@ export class LoginPage implements OnInit {
       () =>{
         this.navCtrl.navigateRoot('/dashboard');
       }
-    )
+      );
+  
   }
+
+  register()
+  {
+    this.navCtrl.navigateRoot('/register');
+  }
+
+
+  
+    
+  
 }

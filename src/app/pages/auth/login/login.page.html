@@ -11,11 +11,11 @@
         <form #form="ngForm" (ngSubmit) = "login(form)" method="POST">
           <div padding>
             <ion-item>
-              <ion-input type="email" placeholder="email"></ion-input>
+              <ion-input ngModel type="email" name="email" placeholder="email"></ion-input>
             </ion-item>
     
             <ion-item>
-              <ion-input type="password" placeholder="password"></ion-input>
+              <ion-input ngModel type="password" name="password" placeholder="password"></ion-input>
             </ion-item>
           </div>
       
