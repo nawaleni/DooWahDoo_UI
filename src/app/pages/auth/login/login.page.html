@@ -20,7 +20,7 @@
           </div>
       
         <div padding>
-          <ion-button color="secondary" expand="full">Login</ion-button>
+          <ion-button color="secondary" expand="full" type= "submit" [disabled]="form.invalid">Login</ion-button>
           <p text-center>Don't have a account?</p>
       
         <ion-button expand="full" color="danger" (click)="register()">Register</ion-button>
