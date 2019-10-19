@@ -1,0 +1,42 @@
+<ion-grid>
+  <div padding size-md="6" size-lg="5" size-xs="12" align-self-center> 
+    <embed height="200px" type="image/svg+xml" src="../../../../assets/Images/White Logo.svg" />
+  
+    
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <div text-center>
+          <h4>REGISTER</h4>
+        </div>
+        <form #form="ngForm" (ngSubmit) = "register(form)" method="POST">
+          <div padding>
+            <ion-item>
+              <ion-input type="text" placeholder="First Name"></ion-input>
+              <ion-input type="text" placeholder="Last Name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="number" placeholder="Mobile"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="email" placeholder="Email"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+              <ion-input type="password" placeholder="Password"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="City"></ion-input>
+              <ion-input type="number" placeholder="ZIP"></ion-input>
+            </ion-item>
+          </div>
+      
+        <div padding>
+          <ion-button color="secondary" expand="block">Register</ion-button>
+          
+        </div>
+      </form>
+      
+      </ion-col>
+    </ion-row>
+    </div>
+  </ion-grid>

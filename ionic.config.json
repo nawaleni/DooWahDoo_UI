@@ -1,6 +1,8 @@
 {
   "name": "DooWahDoo",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "87c0480c"
 }

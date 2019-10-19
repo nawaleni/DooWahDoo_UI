@@ -1,0 +1,33 @@
+<ion-grid>
+  <div>
+    <embed height="200px" type="image/svg+xml" src="../../../../assets/Images/White Logo.svg" />
+  
+    
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <div text-center>
+          <h4>LOGIN</h4>
+        </div>
+        <form #form="ngForm" (ngSubmit) = "login(form)" method="POST">
+          <div padding>
+            <ion-item>
+              <ion-input type="email" placeholder="email"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+              <ion-input type="password" placeholder="password"></ion-input>
+            </ion-item>
+          </div>
+      
+        <div padding>
+          <ion-button color="secondary" expand="full">Login</ion-button>
+          <p text-center>Don't have a account?</p>
+      
+        <ion-button expand="full" color="danger" (click)="register()">Register</ion-button>
+        </div>
+      </form>
+      
+      </ion-col>
+    </ion-row>
+    </div>
+  </ion-grid>
