@@ -23,20 +23,20 @@ export class RegisterPage implements OnInit {
 
   
 
-  register(form: NgForm){
+  register1(form: NgForm){
     var headers = new HttpHeaders();
     headers.append("Accept", 'application/json');
     headers.append('Content-Type', 'application/json');
 
     let postData = {
       "userProfile":{
-        "firstName":form.value.firstName,
-        "lastName":form.value.lastName,
-        "contactNo":form.value.mobile
+        "firstName": "a", //form.value.firstName,
+        "lastName":"b",//form.value.lastName,
+        "contactNo": 12 //form.value.mobile
       },
 	    "signUp":{
-        "emailId":form.value.email,
-        "password":form.value.password
+        "emailId":"aa", //form.value.email,
+        "password": "aa" //form.value.password
       }
     }
     this.http.post('https://doowahdoo-capstone.herokuapp.com/api/v1/employees', postData,
@@ -48,13 +48,14 @@ export class RegisterPage implements OnInit {
         console.log(error);
       },
       () =>{
-        this.navCtrl.navigateRoot('/dashboard');
+        console.log("Success");
+        //this.navCtrl.navigateRoot('/dashboard');
       }
       );
 
   }
 
-  register1(form: NgForm){  
+  register(form: NgForm){  
 
     //let headers = new HttpHeaders({ responseType : 'application/json' });
 
