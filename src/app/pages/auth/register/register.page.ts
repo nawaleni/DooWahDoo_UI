@@ -57,12 +57,17 @@ export class RegisterPage implements OnInit {
 
   register(form: NgForm){  
 
+    console.log(form.value.firstName);
+    console.log(form.value.lastName);
+    console.log(form.value.mobile);
+    console.log(form.value.email);
+    console.log(form.value.password);
     //let headers = new HttpHeaders({ responseType : 'application/json' });
 
     this.http.post('https://doowahdoo-capstone.herokuapp.com/api/v1/employees', {
     userProfile : {
-          firstName : form.value.firstName,
-          lastName : form.value.lastName,
+          firstName : form.value.firstname,
+          lastName : form.value.lastname,
           contactNo : form.value.mobile
         },    
     signUp :	{
@@ -78,7 +83,7 @@ export class RegisterPage implements OnInit {
         console.log(error);
       },
       () =>{
-        this.navCtrl.navigateRoot('/dashboard');
+        this.navCtrl.navigateRoot('/login');
       }
     );
   
