@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { UserProfilePage } from '../user-profile/user-profile.page';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.page.html',
-  styleUrls: ['./dashboard.page.scss'],
+  selector: 'app-user-profile',
+  templateUrl: './user-profile.page.html',
+  styleUrls: ['./user-profile.page.scss'],
 })
-export class DashboardPage implements OnInit {
+export class UserProfilePage implements OnInit {
 
-  constructor(private navCtrl:NavController) {}
+  constructor(private navCtrl:NavController) { }
 
   ngOnInit() {
-    // do init at here for current route.  
   }
 
   userProfilePage(){
@@ -35,6 +33,4 @@ export class DashboardPage implements OnInit {
         this.navCtrl.navigateRoot('/queue');
     }, );  //5s
   }
-
-
 }

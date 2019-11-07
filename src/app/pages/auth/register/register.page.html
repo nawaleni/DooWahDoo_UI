@@ -1,36 +1,36 @@
 <ion-grid>
-  <div padding size-md="6" size-lg="5" size-xs="12" align-self-center> 
-    <embed height="200px" type="image/svg+xml" src="../../../../assets/Images/White Logo.svg" />
+  <div padding size-md="6" size-lg="5" size-xs="12" class="ion-align-self-center"> 
+    <embed height="200px" type="image/svg+xml" src="../../../../assets/images/White Logo.svg" />
   
     
     <ion-row justify-content-center>
-      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-        <div text-center>
+      <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
+        <div class="ion-text-center">
           <h4>REGISTER</h4>
         </div>
         <form #form="ngForm" (ngSubmit) = "register(form)" method="POST">
-          <div padding>
+          <div class="ion-padding">
             <ion-item>
-              <ion-input ngModel type="text" name="firstname" placeholder="First Name"></ion-input>
-              <ion-input ngModel type="text" name="lastname" placeholder="Last Name"></ion-input>
+              <ion-input [(ngModel)] = "userProfile.firstName" type="text" name="firstname" placeholder="First Name" required></ion-input>
+              <ion-input [(ngModel)] = "userProfile.lastName" type="text" name="lastname" placeholder="Last Name" required></ion-input>
+            </ion-item>
+            <ion-item > 
+              <ion-input [(ngModel)] = "userProfile.mobile" type="number" name="mobile" placeholder="Mobile" required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input ngModel type="number" name="mobile" placeholder="Mobile"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input ngModel type="email" name="email" placeholder="Email"></ion-input>
+              <ion-input [(ngModel)] = "userProfile.email" type="email" name="email" placeholder="Email"></ion-input>
             </ion-item>
     
             <ion-item>
-              <ion-input ngModel  type="password" name="password" placeholder="Password"></ion-input>
+              <ion-input [(ngModel)] = "userProfile.password"  type="password" name="password" placeholder="Password"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input ngModel type="text" name="city" placeholder="City"></ion-input>
-              <ion-input ngModel type="number" name="zip" placeholder="ZIP"></ion-input>
+              <ion-input [(ngModel)] = "userProfile.city" type="text" name="city" placeholder="City"></ion-input>
+              <ion-input [(ngModel)] = "userProfile.zip" type="number" name="zip" placeholder="ZIP"></ion-input>
             </ion-item>
           </div>
       
-        <div padding>
+        <div class="ion-padding">
           <ion-button color="secondary" expand="block" type= "submit" [disabled]="form.invalid">Register</ion-button>
           
         </div>

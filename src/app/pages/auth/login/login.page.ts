@@ -47,9 +47,4 @@ export class LoginPage implements OnInit {
   {
     this.navCtrl.navigateRoot('/register');
   }
-
-
-  
-    
-  
 }

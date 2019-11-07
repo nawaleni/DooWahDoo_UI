@@ -8,6 +8,10 @@ const routes: Routes = [
   { path: 'login', loadChildren: './pages/auth/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './pages/auth/register/register.module#RegisterPageModule' },
   { path: 'dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardPageModule' },
+  { path: 'search-music', loadChildren: './search-music/search-music.module#SearchMusicPageModule' },
+  { path: 'search', loadChildren: './pages/search/search.module#SearchPageModule' },
+  { path: 'queue', loadChildren: './pages/queue/queue.module#QueuePageModule' },
+  { path: 'user-profile', loadChildren: './pages/user-profile/user-profile.module#UserProfilePageModule' },
 ];
 
 @NgModule({
