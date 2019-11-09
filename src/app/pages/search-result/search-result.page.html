@@ -1,14 +1,10 @@
-
 <ion-content>
     <ion-grid>
         <div>
 
         </div>
-          <div class="ion-padding" class="ion-text-center" style="color: white;">
-            <h1>Browse Songs</h1> 
-          </div>
-
-          <div class="container">
+          
+            <div class="container" style="padding-block-start: 1rem; ">
               <div class="row">
                 <div class="col">
                   <button type="button" class="btn button" (click)="SearchByTitle()" >Title</button>
@@ -22,18 +18,28 @@
               </div>
             </div>
 
-            <div class="ion-padding">
-                <ion-list>
-                    <ion-item *ngFor="let item of items">
-                      {{ item }}
-                    </ion-item>
-                  </ion-list>
+            <div class="container" style="padding-block-start: 0.5rem; "> 
+              <div class="row">
+                  <div class="col">
+                    <button type="button" class="btn btnAplphabets">S</button>
+                  </div>
+              </div>
             </div>
-              
+
+            <div class="container" style="overflow: auto;">
+            <div class="col" style="padding-block-start: 2rem;  padding-block-end: 1rem">
+                <button style="text-align:center;" type="button" class="btn btnMusic" *ngFor="let music of musicList">
+                  <tr align="center">{{ music.title}}</tr>
+                  <tr align="center">{{ music.artist}}</tr>
+                </button>
+            </div>
+          </div>
+
+             
             <div class="card-footer footer" >
               <div class="containerNew">
                 <div>
-                    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+                    <ion-searchbar ></ion-searchbar>
                 </div>
                 <div class="row">
                   <div class="col">
@@ -50,5 +56,6 @@
               </div>
             </div>
       
-    </ion-grid>
+           
+         </ion-grid>
 </ion-content>

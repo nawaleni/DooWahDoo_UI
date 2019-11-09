@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
-import { AlertService } from 'src/app/services/alert.service';
+import { AlertService } from "../../../services/alert.service";
 import { NavController } from '@ionic/angular';
-import { User } from 'src/app/models/user';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-register',
