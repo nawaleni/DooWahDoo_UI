@@ -20,6 +20,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
+              "src/api",
               {
                 "glob": "**/*",
                 "input": "src/assets",
@@ -30,6 +31,7 @@
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
               }
+              
             ],
             "styles": [
               {

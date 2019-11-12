@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Music } from '../../models/music';
 import { NavController } from '@ionic/angular';
+import { MusicService } from 'src/app/services/music.service';
 
 @Component({
   selector: 'app-search-result',
@@ -9,79 +10,21 @@ import { NavController } from '@ionic/angular';
 })
 export class SearchResultPage implements OnInit {
   
-  ngOnInit() {
-  }
-
+  errorMessage: string;
   musicList: Music[];
 
-  constructor(private navCtrl:NavController) { 
-    this.initializeItems();
+  constructor(private navCtrl:NavController, private musicService: MusicService) { 
+  
   }
 
-  initializeItems() {
-    this.musicList = [
-      {
-        title: 'Shake your booty',
-        artist: 'KC and the sunshine band'
-      },
-      {
-        title: 'Sittin on the dock of..',
-        artist: 'Ottis Redding'
-      },
-      {
-        title: 'S Club Party',
-        artist: 'S club 7'
-      },
-      {
-        title: 'S&M',
-        artist: 'Rihanna'
-      },
-      {
-        title: 'S & M',
-        artist: 'Thin Lizzy'
-      },
-      {
-        title: 'Shit on the Radio',
-        artist: 'Robbie Williams'
-      },
-      {
-        title: 'S.M.F',
-        artist: 'Twisted Sisters'
-      }
-  ];
+  ngOnInit() {
+    this.musicService.getAllMusic().subscribe({
+      next: musicList => this.musicList = musicList,
+      error: err => this.errorMessage = err
+    })
   }
+
+ 
 
   
-  getItems() : Music[] {
-    return [
-      {
-        title: 'Shake your booty',
-        artist: 'KC and the sunshine band'
-      },
-      {
-        title: 'Sittin on the dock of..',
-        artist: 'Ottis Redding'
-      },
-      {
-        title: 'S Club Party',
-        artist: 'S club 7'
-      },
-      {
-        title: 'S&M',
-        artist: 'Rihanna'
-      },
-      {
-        title: 'S & M',
-        artist: 'Thin Lizzy'
-      },
-      {
-        title: 'Shit on the Radio',
-        artist: 'Robbie Williams'
-      },
-      {
-        title: 'S.M.F',
-        artist: 'Twisted Sisters'
-      }
-  ];
-  }
 }
