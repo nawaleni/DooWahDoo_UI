@@ -1,0 +1,41 @@
+[
+    {
+      "name": "Rock"
+    },
+    {
+        "name": "Pop"
+    },
+    {
+        "name": "Country"
+    },
+    {
+        "name": "Country/Pop"
+    },
+    {
+        "name": "Indie Pop"
+    },
+    {
+        "name": "RnB"
+    },
+    {
+        "name": "Bollywood"
+    },
+    {
+        "name": "Rock"
+      },
+      {
+          "name": "Pop"
+      },
+      {
+          "name": "Country"
+      },
+      {
+          "name": "Country/Pop"
+      },
+      {
+          "name": "Indie Pop"
+      },
+      {
+          "name": "RnB"
+      }
+]

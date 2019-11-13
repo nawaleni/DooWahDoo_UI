@@ -13,11 +13,34 @@ export class SearchArtistPage implements OnInit {
   ngOnInit() {
   }
 
-  SearchByTitleS(){
-    // do init at here for current route.
-    setTimeout(() => {
-        this.navCtrl.navigateRoot('/search-result');
-    }, );  //5s
+  /* Footer menu events  */
+  OnMusicClicked(message: string):void{
+  }
+
+  OnListClicked(message: string):void{
+  }
+
+  OnProfileClicked(message: string):void{
+  }
+
+  //search options
+  OnTitleClicked(message: string):void{
+  }
+
+  OnArtistClicked(message: string):void{
+  }
+
+  OnGenreClicked(message: string):void{
+  }
+ 
+  //Search by Aplhabet events
+  OnAClicked(message: string):void{
+  }
+
+  OnBClicked(message: string):void{
+  }
+
+  OnCClicked(message: string):void{
   }
 
 }

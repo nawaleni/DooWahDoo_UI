@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { Music } from '../../models/music';
 import { NavController } from '@ionic/angular';
 import { MusicService } from 'src/app/services/music.service';
 
 @Component({
-  selector: 'app-search-result',
-  templateUrl: './search-result.page.html',
-  styleUrls: ['./search-result.page.scss'],
+  selector: 'app-search-genre',
+  templateUrl: './search-genre.page.html',
+  styleUrls: ['./search-genre.page.scss'],
 })
-export class SearchResultPage implements OnInit {
+export class SearchGenrePage implements OnInit {
+
   
   errorMessage: string;
-  musicList: Music[];
+  genreList: string[];
 
   constructor(private navCtrl:NavController, private musicService: MusicService) { 
   
   }
 
   ngOnInit() {
-    this.musicService.getAllMusic().subscribe({
-      next: musicList => this.musicList = musicList,
+    this.musicService.getAllGenres().subscribe({
+      next: genreList => this.genreList = genreList,
       error: err => this.errorMessage = err
     })
   }
@@ -43,5 +43,5 @@ export class SearchResultPage implements OnInit {
   OnGenreClicked(message: string):void{
   }
 
-  
+
 }

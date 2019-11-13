@@ -10,13 +10,23 @@ import { tap, catchError } from 'rxjs/operators';
 
 export class MusicService{
     musicUrl : string = 'api/MyMusic.json'
+    genreUrl : string = 'api/MyGenres.json'
     constructor(private http: HttpClient){}
+
     getAllMusic(): Observable<Music[]>{
         return this.http.get<Music[]>(this.musicUrl).pipe(
             tap(data => console.log('All :' + JSON.stringify(data))),
             catchError(this.handleError)
         )
     }
+
+    getAllGenres(): Observable<string[]>{
+        return this.http.get<string[]>(this.genreUrl).pipe(
+            tap(data => console.log('All :' + JSON.stringify(data))),
+            catchError(this.handleError)
+        )
+    }
+
     private handleError(err: HttpErrorResponse){
         let errorMessage = '';
 

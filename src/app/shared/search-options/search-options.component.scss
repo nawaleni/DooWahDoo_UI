@@ -77,10 +77,19 @@ img.first-r  {  position: relative; height: 3rem; width: 3em;}
 img.second-r { position: relative; height: 3rem; width: 3em; }
 img.third-r  {  position: relative; height: 3rem; width: 3em;}
 
+
 .footer {
   position:absolute;
   bottom:0;
   width:100%;
-  height:auto;   /* Height of the footer */
+  height:90px;   /* Height of the footer */
   color: #000000;
+}
+
+.button{
+  border-radius: 2rem;
+  border-color: white;
+  background-color: transparent;
+  color: white;
+  font-weight: 800;
 }

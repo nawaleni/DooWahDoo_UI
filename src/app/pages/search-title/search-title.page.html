@@ -1,9 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>search-title</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+    <ion-grid>
+        <div padding size-md="6" size-lg="5" size-xs="12" style="left: 0rem;"> 
+        <div>
 
+        </div>
+          <div class="ion-padding" class="ion-text-center" style="color: white;">
+            <h1>Browse Songs</h1> 
+        </div>
+
+        <div class="container">
+            <app-search-options>
+                (title) = 'OnTitleClicked($event)'
+                (artist) = 'OnArtistClicked($event)'
+                (genre) = 'OnGenreClicked($event)'
+            </app-search-options>
+        </div>
+
+        <div class="container alphaContainer" style="padding-block-start: 1rem; overflow: auto;">
+          <app-alphabets>(A) = 'OnAClicked($event)'
+              (B) = 'OnBClicked($event)'
+              (C) = 'OnCClicked($event)'
+          </app-alphabets>
+        </div>
+        
+        
+        <div class="card-footer footer" >
+            
+            <app-footer>(music) = 'OnMusicClicked($event)'
+              (list) = 'OnListClicked($event)'
+              (profile) = 'OnProfileClicked($event)'
+            </app-footer>
+        
+        </div>
+              
+          
+        </div>
+    </ion-grid>
 </ion-content>

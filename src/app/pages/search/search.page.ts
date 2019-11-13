@@ -52,21 +52,12 @@ export class SearchPage implements OnInit {
   OnProfileClicked(message: string):void{
   }
   
-  SearchByTitle(){
-    setTimeout(() => {
-      this.navCtrl.navigateRoot('/search-title');
-    }, );
+  OnTitleClicked(message: string):void{
   }
 
-  SearchByArtist(){
-    setTimeout(() => {
-      this.navCtrl.navigateRoot('/search-artist');
-    }, );
+  OnArtistClicked(message: string):void{
   }
 
-  SearchByGenre(){
-    setTimeout(() => {
-      this.navCtrl.navigateRoot('/search-artist');
-    }, );
+  OnGenreClicked(message: string):void{
   }
 }

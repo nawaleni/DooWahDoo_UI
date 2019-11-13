@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'search-artist', loadChildren: './pages/search-artist/search-artist.module#SearchArtistPageModule' },
   { path: 'search-title', loadChildren: './pages/search-title/search-title.module#SearchTitlePageModule' },
   { path: 'search-result', loadChildren: './pages/search-result/search-result.module#SearchResultPageModule' },
+  { path: 'search-genre', loadChildren: './pages/search-genre/search-genre.module#SearchGenrePageModule' },
 ];
 
 @NgModule({

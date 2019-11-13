@@ -2,21 +2,15 @@
         <ion-grid>
             <div padding size-md="6" size-lg="5" size-xs="12" >
 
-                    <div class="container" >
-                            <div class="row">
-                              <div class="col">
-                                <button type="button" class="btn button" (click)="SearchByTitle()" >Title</button>
-                              </div>
-                              <div class="col">
-                                  <button type="button" class="btn button" (click)="SearchByArtist()">Artist</button>
-                              </div>
-                              <div class="col">
-                                  <button type="button" class="btn button" (click)="SearchByGenre()">Genre</button>
-                              </div>
-                            </div>
+                    <div class="container">
+                            <app-search-options>
+                                (title) = 'OnTitleClicked($event)'
+                                (artist) = 'OnArtistClicked($event)'
+                                (genre) = 'OnGenreClicked($event)'
+                            </app-search-options>
                     </div>
 
-                    <div class="container" style="padding-block-start: 0.5rem; padding-inline-start: 35%; "> 
+                    <div class="container" style="padding-block-start: 0.5rem; padding-inline-start: 39%; "> 
                             <div class="row">
                                 <div class="col">
                                   <button type="button" class="btn btnAplphabets">S</button>

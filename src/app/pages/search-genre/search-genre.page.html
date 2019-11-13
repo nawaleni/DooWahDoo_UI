@@ -1,0 +1,38 @@
+<ion-content>
+    <ion-grid>
+        <div padding size-md="6" size-lg="5" size-xs="12" >
+
+            <div class="ion-padding" class="ion-text-center" style="color: white;">
+                <h1>Browse Songs</h1> 
+            </div>
+    
+            <div class="container">
+                <app-search-options>
+                    (title) = 'OnTitleClicked($event)'
+                    (artist) = 'OnArtistClicked($event)'
+                    (genre) = 'OnGenreClicked($event)'
+                </app-search-options>
+            </div>
+
+
+                <div class="myContainer" style="padding-block-start: 0.5rem;">
+                    <div class="container" style="padding-block-start: 0.5rem;" *ngFor="let genre of genreList" >
+
+                            <button type="button" class="btn btn-secondary btnMusic btn-lg btn-block">
+                                    <tr> <td> {{ genre.name}} </td>
+                                    </tr>
+
+                            </button>
+                    </div>
+                </div>
+
+
+                <div class="card-footer footer" >
+                        <app-footer>(music) = 'OnMusicClicked($event)'
+                            (list) = 'OnListClicked($event)'
+                            (profile) = 'OnProfileClicked($event)'
+                          </app-footer>
+                </div>
+        </div>
+    </ion-grid>
+</ion-content>
