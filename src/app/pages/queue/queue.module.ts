@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { QueuePage } from './queue.page';
+import { FooterMenuModule } from 'src/app/shared/footer-menu/footer-menu.module';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    FooterMenuModule,
     CommonModule,
     FormsModule,
     IonicModule,

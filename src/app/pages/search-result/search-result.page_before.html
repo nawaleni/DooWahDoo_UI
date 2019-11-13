@@ -1,0 +1,51 @@
+<ion-content>
+    <ion-grid>
+      <div padding size-md="6" size-lg="5" size-xs="12" style="left: 0rem;">
+        <div>
+
+        </div>
+          
+            <div class="container" style="padding-block-start: 1rem; ">
+              <div class="row">
+                <div class="col">
+                  <button type="button" class="btn button" (click)="SearchByTitle()" >Title</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn button" (click)="SearchByArtist()">Artist</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn button" (click)="SearchByGenre()">Genre</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="container" style="padding-block-start: 0.5rem; "> 
+              <div class="row">
+                  <div class="col">
+                    <button type="button" class="btn btnAplphabets">S</button>
+                  </div>
+              </div>
+            </div>
+
+            
+
+            <div class="card-body">
+              <div class="col" style="padding-block-start: 2rem;  padding-block-end: 1rem" *ngIf = 'musicList'>
+                <button style="text-align:center;" type="button" class="btn btnMusic" *ngFor="let music of musicList">
+                  <tr align="center">{{ music.title}}</tr>
+                  <tr align="center">{{ music.artist}}</tr>
+                </button>
+              </div>
+            </div>
+
+             
+            <div class="card-footer" >
+                <app-footer>(music) = 'OnMusicClicked($event)'
+                    (list) = 'OnListClicked($event)'
+                    (profile) = 'OnProfileClicked($event)'
+                  </app-footer>
+            </div>
+      
+          </div>
+         </ion-grid>
+</ion-content>

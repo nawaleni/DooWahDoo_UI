@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -14,8 +15,14 @@ export class HomePage implements OnInit{
   ngOnInit() {
     // do init at here for current route.
 
+    
+
     setTimeout(() => {
         this.navCtrl.navigateRoot('/login');
-    }, 3000);  //5s
+    }, 5000);  //5s
   }
+
+  
+
+  
 }

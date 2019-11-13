@@ -1,3 +1,7 @@
+.ng-invalid:not(form).ng-touched {
+    border: 1px solid red;
+}
+
 #grad1 {
     height: 500px;
     background-color: red; /* For browsers that do not support gradients */
@@ -24,11 +28,12 @@ ion-grid {
     width:100%;
     height: $height100;
     background: linear-gradient(#E45D9E, #875FA8, #3BA9DF);
-    
+    overflow: auto;
 }
 
 ion-row {
-    height: $height100;
+    height: auto;
+    width: 100%;
 }
 
 ion-row1 {
@@ -50,12 +55,4 @@ ion-button {
     ion-col {
         border: none;
     }
-}
-
-.tab {
-    margin-left: 1em;
-    margin-right: 1em;
-    margin-top: 1em;
-    margin-left: 1em;
-    align-content: center;
 }

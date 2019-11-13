@@ -9,22 +9,14 @@
                   <h3>You will see details about current karaoke session.</h3>
                 </div>
               
-            <div class="card-footer footer" >
-              <div class="containerNew">
-                <div class="row">
-                  <div class="col">
-                    <ion-icon  name="list" (click)="queue()"></ion-icon>
-                  </div>
-                  <div class="col">
-                    <ion-icon color= "primary"  ios="ios-musical-notes" md="md-musical-notes" (click)="searchMusic()"></ion-icon>
-                  </div>
-                  <div class="col">
-                    <ion-icon color= "primary"  name="person" md="md-person" (click)="userProfilePage()">
-                        </ion-icon>
-                  </div>
-                </div>
-              </div>
+            <div class="card-footer footer">
+                <app-footer>(music) = 'OnMusicClicked($event)'
+                    (list) = 'OnListClicked($event)'
+                    (profile) = 'OnProfileClicked($event)'
+                  </app-footer>
+
             </div>
+              
         </div>
     </ion-grid>
 </ion-content>

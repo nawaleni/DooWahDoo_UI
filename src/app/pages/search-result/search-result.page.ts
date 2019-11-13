@@ -24,6 +24,14 @@ export class SearchResultPage implements OnInit {
     })
   }
 
+  OnMusicClicked(message: string):void{
+  }
+
+  OnListClicked(message: string):void{
+  }
+
+  OnProfileClicked(message: string):void{
+  }
  
 
   

@@ -28,9 +28,11 @@
   $white-color: #fff;
   $height100: 100%;
   
-  .myContainer{
-    overflow: auto;
-    height: 420px;
+  .container1{
+    justify-content: space-between, space-between;
+    display: flex;
+    flex-direction: row;
+    width: 100%
   }
   
   ion-grid {
@@ -83,56 +85,3 @@
     color: #000000;
   }
   
-  
-  .button{
-    border-radius: 2rem;
-    border-color: white;
-    background-color: transparent;
-    color: white;
-    text-align: center;
-    font-weight: 800;
-  }
-
-  .block {
-    display: block;
-    width: 100%;
-    border: none;
-    padding: 14px 28px;
-    font-size: 16px;
-    cursor: pointer;
-    text-align: center;
-  }
-
-  .btnAplphabets{
-    border-color: white;
-    background-color: white;
-    color: black;
-    font-weight:700;
-    border-radius: 1rem;
-    font-size: 2rem;
-    padding-right: 1.2rem;
-    padding-left: 1.2rem;
-    display: flex; 
-    justify-content: center;
-  }
-
-  .btnMusic{
-    text-align: center;
-    border-color: white;
-    background-color: white;
-    color: black;
-    font-weight:500;
-    border-radius: 2rem;
-    font-size: 0.9rem;
-    padding-right: 1.2rem;
-    padding-left: 1.2rem;
-    width: 100%;
-  }
-
-  .noPadding{
-      padding: 0rem;
-  }
-
-  .bg{
-    background: linear-gradient(#E45D9E, #875FA8, #000000)
-  }

@@ -13,24 +13,12 @@ export class UserProfilePage implements OnInit {
   ngOnInit() {
   }
 
-  userProfilePage(){
-    // do init at here for current route.
-    setTimeout(() => {
-        this.navCtrl.navigateRoot('/user-profile');
-    }, );  //5s
+  OnMusicClicked(message: string):void{
   }
 
-  searchMusic(){
-    // do init at here for current route.
-    setTimeout(() => {
-        this.navCtrl.navigateRoot('/search');
-    }, );  //5s
+  OnListClicked(message: string):void{
   }
 
-  queue(){
-    // do init at here for current route.
-    setTimeout(() => {
-        this.navCtrl.navigateRoot('/queue');
-    }, );  //5s
+  OnProfileClicked(message: string):void{
   }
 }
