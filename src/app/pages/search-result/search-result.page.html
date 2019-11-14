@@ -1,6 +1,7 @@
 <ion-content>
         <ion-grid>
-            <div padding size-md="6" size-lg="5" size-xs="12" >
+            <app-home-menu></app-home-menu>
+            <div padding size-md="6" size-lg="5" size-xs="12" style="left: 0rem; text-align: center;">
 
                     <div class="container">
                             <app-search-options>
@@ -18,7 +19,7 @@
                             </div>
                     </div>
 
-                    <div class="myContainer" style="padding-block-start: 0.5rem;">
+                    <div class="myContainer" style="padding-block-start: 0.5rem;" *ngIf = 'musicList'>
                         <div class="container" style="padding-block-start: 0.5rem;" *ngFor="let music of musicList" >
 
                                 <button type="button" class="btn btn-secondary btnMusic btn-lg btn-block">

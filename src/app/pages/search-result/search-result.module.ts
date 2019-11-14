@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { SearchResultPage } from './search-result.page';
 import { FooterMenuModule } from 'src/app/shared/footer-menu/footer-menu.module';
 import { SearchByOptionsModule } from 'src/app/shared/search-options/search-options.module';
+import { HomeMenuModule } from 'src/app/shared/home-menu/home-menu.module';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    HomeMenuModule,
     SearchByOptionsModule,
     FooterMenuModule,
     CommonModule,

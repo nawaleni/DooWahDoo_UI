@@ -1,8 +1,55 @@
 
 <ion-content>
     <ion-grid>
-        <div padding size-md="6" size-lg="5" size-xs="12" style="left: 0rem;"> 
-          <embed height="200px" type="image/svg+xml" src="../../../../assets/images/White Logo.svg" />
+        <div padding size-md="6" size-lg="5" size-xs="12" style="left: 0rem; text-align: center;"> 
+          
+          <div *ngFor = 'let session of mySession'>
+            <img height="150px" src="../../../assets/Images/White Logo.svg" />
+            <ion-row justify-content-center >
+                <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                  <div class="statusContainer" style="padding-block-start: 2rem;" > 
+                    <h5>You'hv joined</h5>
+                    <h1>{{session.placeName}}</h1>
+                    <h5>hosted by</h5>
+                    <h1>{{session.KJName}}</h1>
+                    <h2>Now Playing</h2>
+                    <button type="button" class="btn btn-secondary btnMusic btn-lg btn-block" style="text-align: center;">
+                        <tr> <td> {{ session.artist}} </td>
+                        </tr>
+                    <tr> <td> {{ session.musicTitle}}</td></tr>
+                    </button>
+                  </div>
+                </ion-col>
+              </ion-row>
+          </div>
+
+          <div *ngFor = 'let karaokeSession of myKaraokeSession1'>
+              <ion-row justify-content-center >
+                  <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                    <div class="statusContainer" > 
+                      <h6>You will be singing</h6>
+                      <h3>{{karaokeSession.artist}}</h3>
+                      <h3>"{{karaokeSession.musicTitle}}"</h3>
+                      <ion-icon class="timer" ios="ios-timer" md="md-timer"></ion-icon>
+                      <h1>{{karaokeSession.time}} minutes</h1>
+                      <h2>Now Playing</h2>
+                      <button type="button" class="btn btn-secondary btnMusic btn-lg btn-block"   style="text-align: center;">
+                          <tr> Mike M. </tr>
+                          <tr> Life in Mars?</tr>
+                      </button>
+                    </div>
+                  </ion-col>
+                </ion-row>
+            </div>
+
+
+
+          
+
+                
+
+            
+          
           
             <div class="card-footer footer" >
               
@@ -12,6 +59,9 @@
                   </app-footer>
               
             </div>
-        </div>
+
+            
+          </div>
+        
     </ion-grid>
 </ion-content>

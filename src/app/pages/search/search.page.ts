@@ -43,21 +43,4 @@ export class SearchPage implements OnInit {
   ngOnInit() {
   }
 
-  OnMusicClicked(message: string):void{
-  }
-
-  OnListClicked(message: string):void{
-  }
-
-  OnProfileClicked(message: string):void{
-  }
-  
-  OnTitleClicked(message: string):void{
-  }
-
-  OnArtistClicked(message: string):void{
-  }
-
-  OnGenreClicked(message: string):void{
-  }
 }

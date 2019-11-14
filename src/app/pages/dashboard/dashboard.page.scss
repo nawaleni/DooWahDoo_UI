@@ -28,11 +28,9 @@ app-login {
 $white-color: #fff;
 $height100: 100%;
 
-.container1{
-  justify-content: space-between, space-between;
-  display: flex;
-  flex-direction: row;
-  width: 100%
+.statusContainer{
+  color: white;
+  padding: 0%;
 }
 
 ion-grid {
@@ -80,7 +78,38 @@ img.third-r  {  position: relative; height: 3rem; width: 3em;}
 .footer {
   position:absolute;
   bottom:0;
-  width:100%;
+  width:95%;
   height: auto;   /* Height of the footer */
   color: #000000;
 }
+
+.timer{
+  color: white;
+  height: 150px;
+  width: 150px;
+}
+
+h1,h5{
+  
+    margin:0px;
+    padding:0px;
+
+}
+
+h2{
+  margin-top: 4rem;
+}
+
+.btnMusic{
+  text-align: center;
+  border-color: white;
+  background-color: white;
+  color: black;
+  font-weight:500;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  padding-right: 1.2rem;
+  padding-left: 1.2rem;
+  width: 100%;
+}
+
