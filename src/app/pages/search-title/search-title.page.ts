@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { AppParameterService } from 'src/app/services/app-parameter.service';
 
 @Component({
   selector: 'app-search-title',
@@ -8,10 +9,13 @@ import { NavController } from '@ionic/angular';
 })
 export class SearchTitlePage implements OnInit {
 
-  constructor(private navCtrl:NavController) { }
+  constructor(private navCtrl:NavController, private appParameterService: AppParameterService) { }
 
   ngOnInit() {
+    this.appParameterService.clickedFrom = 'title';
   }
+
+  
 
 
 }

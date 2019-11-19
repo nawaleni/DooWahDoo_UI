@@ -22,20 +22,20 @@
     },
     {
         "name": "Rock"
-      },
-      {
-          "name": "Pop"
-      },
-      {
-          "name": "Country"
-      },
-      {
-          "name": "Country/Pop"
-      },
-      {
-          "name": "Indie Pop"
-      },
-      {
-          "name": "RnB"
-      }
+    },
+    {
+        "name": "Pop"
+    },
+    {
+        "name": "Country"
+    },
+    {
+        "name": "Country/Pop"
+    },
+    {
+        "name": "Indie Pop"
+    },
+    {
+        "name": "RnB"
+    }
 ]

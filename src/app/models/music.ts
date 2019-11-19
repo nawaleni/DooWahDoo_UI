@@ -1,7 +1,10 @@
 export interface Music{
-    //id: number;
+    musicId: number;
     title: string;
+    genre:  string;
     artist: string;
+    duration: string;
+    description: string;
     //genre: string;
     //duration: number;
 }

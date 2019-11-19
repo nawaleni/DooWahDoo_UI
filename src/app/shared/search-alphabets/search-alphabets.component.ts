@@ -1,5 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { MusicService } from 'src/app/services/music.service';
+import { AppParameterService } from 'src/app/services/app-parameter.service';
+import { Music } from 'src/app/models/music';
 
 @Component({
     selector: "app-alphabets",
@@ -8,30 +11,161 @@ import { NavController } from '@ionic/angular';
 })
 export class SearchByAlphabetsComponent{
 
-    constructor(private navCtrl:NavController) {}
+    constructor(private navCtrl:NavController, private musicService: MusicService,
+        private appParameterService: AppParameterService) {}
+
+    errorMessage: string;
+    artists: string[];
+    musicList: Music[];
+    
+
+
+
 
     @Output() A = new EventEmitter();
     @Output() B = new EventEmitter();
     @Output() C = new EventEmitter();
 
+
+
+    SearchByTitle(char: string):void{
+        if(this.appParameterService.clickedFrom == 'artist'){
+
+            this.musicService.getAllArtistbyLetter(char).subscribe({
+                next: list => this.artists = list,
+                error: err => this.errorMessage = err,
+                complete: () => this.appParameterService.artists = this.artists
+            }) 
+            setTimeout(() => {
+                this.appParameterService.letter = char;
+                this.navCtrl.navigateRoot('/search-result-artist');
+                }
+            );
+        }
+        else if(this.appParameterService.clickedFrom == 'title'){
+            console.log('clicked from Title Page');
+            this.musicService.getAllMusicByLetter(char).subscribe({
+                next: list => this.musicList = list,
+                error: err => this.errorMessage = err,
+                complete: () => this.appParameterService.myMusicList = this.musicList
+            }) 
+            setTimeout(() => {
+                this.appParameterService.letter = char;
+                this.navCtrl.navigateRoot('/search-result');
+                }
+            );
+        }
+
+    }
+
+
+
     SearchByTitleA(){
-        this.A.emit("A clicked!");
-        setTimeout(() => {
-            this.navCtrl.navigateRoot('/search-result');
-            }
-        ); 
+        this.SearchByTitle('A');
     }
 
     SearchByTitleB() {
-        this.B.emit("B clicked!");
-        setTimeout(() => {
-            this.navCtrl.navigateRoot('/search-result');
-            }
-        ); 
+        this.SearchByTitle('B');
     }
 
+    SearchByTitleC() {
+        this.SearchByTitle('C');
+    }
 
+    SearchByTitleD() {
+        this.SearchByTitle('D');
+    }
 
+    SearchByTitleE() {
+        this.SearchByTitle('E');
+    }
 
+    SearchByTitleF() {
+        this.SearchByTitle('F');
+    }
+
+    SearchByTitleG() {
+        this.SearchByTitle('G');
+    }
+
+    SearchByTitleH() {
+        this.SearchByTitle('H');
+    }
+
+    SearchByTitleI() {
+        this.SearchByTitle('I');
+    }
+
+    SearchByTitleJ() {
+        this.SearchByTitle('J');
+    }
+
+    SearchByTitleK() {
+        this.SearchByTitle('K');
+    }
+
+    SearchByTitleL() {
+        this.SearchByTitle('L');
+    }
+
+    SearchByTitleM() {
+        this.SearchByTitle('M');
+    }
+
+    SearchByTitleN() {
+        this.SearchByTitle('N');
+    }
+
+    SearchByTitleO() {
+        this.SearchByTitle('O');
+    }
+
+    SearchByTitleP() {
+        this.SearchByTitle('P');
+    }
+
+    SearchByTitleQ() {
+        this.SearchByTitle('Q');
+    }
+
+    SearchByTitleR() {
+        this.SearchByTitle('R');
+    }
+
+    SearchByTitleS() {
+        this.SearchByTitle('S');
+    }
+
+    SearchByTitleT() {
+        this.SearchByTitle('T');
+    }
+
+    SearchByTitleU() {
+        this.SearchByTitle('U');
+    }
+
+    SearchByTitleV() {
+        this.SearchByTitle('V');
+    }
+
+    SearchByTitleW() {
+        this.SearchByTitle('W');
+    }
+
+    SearchByTitleX() {
+        this.SearchByTitle('X');
+    }
+
+    SearchByTitleY() {
+        this.SearchByTitle('Y');
+    }
+
+    SearchByTitleZ() {
+        this.SearchByTitle('Z');
+    }
+
+    SearchByTitleHash() {
+        this.SearchByTitle('');
+    }
 
 }

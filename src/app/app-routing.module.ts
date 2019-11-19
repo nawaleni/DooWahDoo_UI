@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'search-title', loadChildren: './pages/search-title/search-title.module#SearchTitlePageModule' },
   { path: 'search-result', loadChildren: './pages/search-result/search-result.module#SearchResultPageModule' },
   { path: 'search-genre', loadChildren: './pages/search-genre/search-genre.module#SearchGenrePageModule' },
+  { path: 'search-result-artist', loadChildren: './pages/search-result-artist/search-result-artist.module#SearchResultArtistPageModule' },
   
 ];
 

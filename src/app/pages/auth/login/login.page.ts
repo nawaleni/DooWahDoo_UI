@@ -31,6 +31,7 @@ export class LoginPage implements OnInit {
           password	:	form.value.password
     }, {headers, responseType : 'text'}).subscribe( 
       data => {
+        console.log(data);
         this.alertService.presentToast("Logged In");
       },
       error =>{

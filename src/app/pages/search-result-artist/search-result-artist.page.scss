@@ -1,0 +1,138 @@
+#grad1 {
+    height: 500px;
+    background-color: red; /* For browsers that do not support gradients */
+    background-image: linear-gradient(#E45D9E, #875FA8, #000000); /* Standard syntax (must be last) */
+  }
+  
+  .cont {
+    position: relative;
+    height: 100%;
+    background: linear-gradient(#E45D9E, #875FA8, #000000); 
+    background-size: cover;
+    overflow: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .containerNew {
+    width: 100%;
+    padding-right: 1px;
+    padding-left: 1px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  app-login {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  $white-color: #fff;
+  $height100: 100%;
+  
+  .myContainer{
+    overflow: auto;
+    height: 420px;
+  }
+  
+  ion-grid {
+    width:100%;
+    height: $height100;
+    background: linear-gradient(#E45D9E, #875FA8, #000000);
+    overflow: auto;
+  }
+  
+  ion-row {
+    height: $height100;
+  }
+  
+  ion-row1 {
+    width: 100%
+  }
+  ion-col {
+    border: 1px solid #E45D9E
+    //background: $white-color;
+  }
+  
+  ion-button {
+    font-weight: 200;
+  }
+  
+  ion-icon{
+    color: #3880ff;
+    font-size: 4rem;
+    
+  }
+  
+  @media (min-width: 240px) and (max-width: 768px) {
+    ion-grid {
+        background: linear-gradient(#E45D9E, #875FA8, #000000)
+    }
+    ion-col {
+        border: none;
+    }
+  }
+  
+  img.first-r  {  position: relative; height: 3rem; width: 3em;}
+  img.second-r { position: relative; height: 3rem; width: 3em; }
+  img.third-r  {  position: relative; height: 3rem; width: 3em;}
+  
+  .footer {
+    position:absolute;
+    bottom:0;
+    width:95%;
+    height:auto;   /* Height of the footer */
+    color: #000000;
+  }
+  
+  
+  .button{
+    border-radius: 2rem;
+    border-color: white;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    font-weight: 900;
+  }
+
+  .block {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .btnAplphabets{
+    border-color: white;
+    background-color: white;
+    color: black;
+    font-weight:800;
+    border-radius: 1rem;
+    font-size: 2rem;
+    padding-right: 1.2rem;
+    padding-left: 1.2rem;
+    display: flex; 
+    justify-content: center;
+  }
+
+  .btnMusic{
+    text-align: center;
+    border-color: white;
+    background-color: white;
+    color: black;
+    font-weight:500;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    padding-right: 1.2rem;
+    padding-left: 1.2rem;
+    width: 100%;
+  }
+
+  .noPadding{
+      padding: 0rem;
+  }
+
+  .bg{
+    background: linear-gradient(#E45D9E, #875FA8, #000000)
+  }
