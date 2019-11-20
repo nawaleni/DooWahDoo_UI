@@ -18,6 +18,17 @@ export class DashboardPage implements OnInit {
 
   ngOnInit() {
     // do init at here for current route.  
+    this.getSessionInfo();
+    this.myFunction();
+  }
+
+  myFunction(){
+    var self = this;
+    setInterval(function(){self.getSessionInfo();}, 5000); 
+  }
+
+  getSessionInfo(){
+    console.log("getting Session data");
     this.musicService.getCurrentSession().subscribe({
       next: mySession => this.mySession = mySession,
       error: err => this.errorMessage = err
@@ -28,6 +39,7 @@ export class DashboardPage implements OnInit {
       next: myKaraokeSession => this.myKaraokeSession = myKaraokeSession,
       error: err => this.errorMessage = err
     })
+
   }
 
  
@@ -40,4 +52,6 @@ export class DashboardPage implements OnInit {
 
   OnProfileClicked(message: string):void{
   }
+
+  myfunction(){}
 }

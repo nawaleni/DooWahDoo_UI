@@ -5,8 +5,8 @@
           
           <div *ngFor = 'let session of mySession1'>
             <img height="150px" src="../../../assets/Images/White Logo.svg" />
-            <ion-row justify-content-center >
-                <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            <ion-row class="ion-justify-content-center">
+                <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
                   <div class="statusContainer" style="padding-block-start: 2rem;" > 
                     <h5>You'hv joined</h5>
                     <h1>{{session.placeName}}</h1>
@@ -24,8 +24,8 @@
           </div>
 
           <div *ngFor = 'let karaokeSession of myKaraokeSession'>
-              <ion-row justify-content-center >
-                  <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+              <ion-row class="ion-justify-content-center" >
+                  <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
                     <div class="statusContainer" > 
                       <h6>You will be singing</h6>
                       <h3>{{karaokeSession.artist}}</h3>
