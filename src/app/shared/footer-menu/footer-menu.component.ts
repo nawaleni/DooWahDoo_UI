@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { UserTransition } from 'src/app/services/user-transition';
+
 
 @Component({
     selector:"app-footer",
@@ -7,7 +9,9 @@ import { NavController } from '@ionic/angular';
     styleUrls:["./footer-menu.component.scss"]
 })
 export class FooterMenuComponent{
-    constructor(private navCtrl:NavController) {}
+    constructor(private navCtrl:NavController, 
+                private userTransition: UserTransition
+            ) {}
 
     @Output() music = new EventEmitter();
     @Output() list = new EventEmitter();
@@ -17,6 +21,7 @@ export class FooterMenuComponent{
     OnListClick(){
         this.music.emit("clicked!");
         setTimeout(() => {
+            this.userTransition.setTransition();
             this.navCtrl.navigateRoot('/queue');
             }
         ); 
@@ -25,6 +30,7 @@ export class FooterMenuComponent{
     OnMusicClick(){
         this.music.emit("clicked!");
         setTimeout(() => {
+            this.userTransition.setTransition();
             this.navCtrl.navigateRoot('/search');
             }
         ); 
@@ -33,6 +39,7 @@ export class FooterMenuComponent{
     OnProfileClick(){
         this.music.emit("clicked!");
         setTimeout(() => {
+            this.userTransition.setTransition();
             this.navCtrl.navigateRoot('/user-profile');
             }
         ); 

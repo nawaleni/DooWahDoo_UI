@@ -3,6 +3,7 @@ import { NavController } from '@ionic/angular';
 import { MusicService } from 'src/app/services/music.service';
 import { AppParameterService } from 'src/app/services/app-parameter.service';
 import { Music } from 'src/app/models/music';
+import { UserTransition } from 'src/app/services/user-transition';
 
 @Component({
     selector: "app-alphabets",

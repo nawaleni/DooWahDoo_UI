@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { UserTransition } from 'src/app/services/user-transition';
+
 
 
 @Component({
@@ -10,7 +12,7 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage implements OnInit{
 
-  constructor(private navCtrl:NavController) {}
+  constructor(private navCtrl: NavController, private userTransition: UserTransition) {}
 
   ngOnInit() {
     // do init at here for current route.
@@ -18,8 +20,9 @@ export class HomePage implements OnInit{
     
 
     setTimeout(() => {
+        this.userTransition.setTransition();
         this.navCtrl.navigateRoot('/login');
-    }, 5000);  //5s
+    }, 1200);  //1.2s
   }
 
   

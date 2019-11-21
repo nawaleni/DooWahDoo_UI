@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { AppParameterService } from 'src/app/services/app-parameter.service';
 import { MusicService } from 'src/app/services/music.service';
 import { NavController } from '@ionic/angular';
+import { UserTransition } from 'src/app/services/user-transition';
 
 @Component({
   selector: 'app-search-result-artist',
@@ -14,7 +15,8 @@ export class SearchResultArtistPage implements OnInit {
 
   constructor(private appParameterService: AppParameterService,
     private musicService: MusicService,
-    private navCtrl: NavController) { }
+    private navCtrl: NavController,
+    private userTransition: UserTransition) { }
   get artists(): string[]{
      return this.appParameterService.artists;
   }
@@ -36,7 +38,10 @@ export class SearchResultArtistPage implements OnInit {
     this.musicService.getAllMusicByArtist(this.myArtistName.nativeElement.innerText).subscribe({
       next: musicList => this.appParameterService.myMusicList = musicList,
       error: err => this.errorMessage = err,
-      complete: () => this.navCtrl.navigateRoot('/search-result')
+      complete: () => {
+                        this.userTransition.setTransition();
+                        this.navCtrl.navigateRoot('/search-result'); 
+                      }
     })
   }
 

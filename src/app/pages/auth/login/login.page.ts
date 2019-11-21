@@ -4,7 +4,8 @@ import { AlertService } from 'src/app/services/alert.service';
 import { NavController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
+import { UserTransition } from 'src/app/services/user-transition';
+import { User } from 'src/app/models/user';
 
 
 @Component({
@@ -19,45 +20,41 @@ export class LoginPage implements OnInit {
     private alertService: AlertService,
     private navCtrl: NavController,
     private http: HttpClient,
-    private nativePageTransitions: NativePageTransitions
+    private userTransition : UserTransition
   ) { }
 
   ngOnInit() {
+    
   }
 
   login(form: NgForm){  
-
+  
     let headers = new HttpHeaders({ responseType : 'text' });
-    
-    let options: NativeTransitionOptions = {
-      direction: 'up',
-      duration: 1000,
-      slowdownfactor: 3,
-      slidePixels: 20,
-      iosdelay: 100,
-      androiddelay: 150,
-      fixedPixelsTop: 0,
-      fixedPixelsBottom: 60
-     };
+
 
     this.http.post('https://doowahdoo-capstone.herokuapp.com/api/v1/login', {
           emailId	:	form.value.email,
           password	:	form.value.password
-    }, {headers, responseType : 'text'}).subscribe( 
+    }, {headers, responseType : 'text'}).subscribe(
       data => {
         console.log(data);
-        this.alertService.presentToast("Logged In");
+        this.alertService.presentToast('Logged In');
       },
       error =>{
+
         console.log(error);
+
       },
+
       () =>{
-        this.nativePageTransitions.drawer(options);
+
+        this.userTransition.setTransition();
         this.navCtrl.navigateRoot('/dashboard');
-        //Hello
+        // Hello
+
       }
       );
-  
+
   }
 
 

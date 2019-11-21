@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NativeStorage} from '@ionic-native/native-storage/ngx'
 import { AppParameterService } from './services/app-parameter.service';
 import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx';
+import { UserTransition } from './services/user-transition';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +29,8 @@ import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     NativeStorage,
     AppParameterService,
-    NativePageTransitions
+    NativePageTransitions,
+    UserTransition
   ],
   bootstrap: [AppComponent]
 })
