@@ -11,7 +11,7 @@ import { tap, catchError } from 'rxjs/operators';
 })
 
 export class MusicService{
-    musicUrl : string = 'https://doowahdoo-1573845818014.azurewebsites.net/api/getAllMusic'
+    musicUrl : string = 'https://webapp-191120202122.azurewebsites.net/api/getAllMusic'
     genreUrl : string = 'api/MyGenres.json'
     sessionUrl : string  = 'api/MySession.json'
     artistByLetterUrl : string;
@@ -52,7 +52,7 @@ export class MusicService{
     }
 
     getAllMusicByGenre(genre: string): Observable<Music[]>{
-        this.musicByGenreUrl = 'https://doowahdoo-1573845818014.azurewebsites.net/api/getAllMusic/byGenre?Genre=';
+        this.musicByGenreUrl = 'https://webapp-191120202122.azurewebsites.net/api/getAllMusic/byGenre?Genre=';
         console.log(genre);
         this.musicByGenreUrl = this.musicByGenreUrl.concat('"', genre, '"');
 
@@ -78,7 +78,7 @@ export class MusicService{
 
     getAllArtistbyLetter(char: string): Observable<string[]>{
         
-        this.artistByLetterUrl = 'https://doowahdoo-1573845818014.azurewebsites.net/api/getAllMusic/byArtistLetter?Artist='
+        this.artistByLetterUrl = 'https://webapp-191120202122.azurewebsites.net/api/getAllMusic/byArtistLetter?Artist='
         this.artistByLetterUrl = this.artistByLetterUrl.concat('"', char, '"');
         
 
@@ -89,7 +89,7 @@ export class MusicService{
     }
 
     getAllMusicByLetter(char: string): Observable<Music[]>{
-        this.musicbyLetterUrl = 'https://doowahdoo-1573845818014.azurewebsites.net/api/getAllMusic/byTitleLetter?Title=';
+        this.musicbyLetterUrl = 'https://webapp-191120202122.azurewebsites.net/api/getAllMusic/byTitleLetter?Title=';
         this.musicbyLetterUrl = this.musicbyLetterUrl.concat('"', char, '"');
 
         return this.http.get<Music[]>(this.musicbyLetterUrl).pipe(
@@ -99,7 +99,7 @@ export class MusicService{
     }
 
     getAllMusicByArtist(artist: string): Observable<Music[]>{
-        this.musicByArtistUrl = 'https://doowahdoo-1573845818014.azurewebsites.net/api/getAllMusic/byArtistName?Artist='
+        this.musicByArtistUrl = 'https://webapp-191120202122.azurewebsites.net/api/getAllMusic/byArtistName?Artist='
         this.musicByArtistUrl = this.musicByArtistUrl.concat('"', artist, '"');
 
         return this.http.get<Music[]>(this.musicByArtistUrl).pipe(
