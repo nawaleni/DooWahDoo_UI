@@ -19,7 +19,7 @@
                 <div class="myContainer" style="padding-block-start: 0.5rem;" *ngIf = 'genreList'>
                     <div class="container" style="padding-block-start: 0.5rem;" *ngFor="let genre of genreList" >
 
-                            <button #myGenre type="button" class="btn btn-secondary btnMusic btn-lg btn-block" (click) = "OnButtonClick()" >
+                            <button #myGenre type="button" class="btn btn-secondary btnMusic btn-lg btn-block" (click) = "OnButtonClick(genre.name)" >
                                     <tr> <td> {{ genre.name}} </td>
                                     </tr>
 

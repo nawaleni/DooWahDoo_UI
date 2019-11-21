@@ -27,10 +27,8 @@ export class SearchGenrePage implements OnInit {
     })
   }
 
-  OnButtonClick(){
-    this.appParameterService.letter = '';
-    console.log(this.myGenreElement.nativeElement.innerText);
-    this.musicService.getAllMusicByGenre(this.myGenreElement.nativeElement.innerText).subscribe({
+  OnButtonClick(myGenre: string) {
+    this.musicService.getAllMusicByGenre(myGenre).subscribe({
       next: musicList => this.appParameterService.myMusicList = musicList,
       error: err => this.errorMessage = err,
       complete: () => this.navCtrl.navigateRoot('/search-result')

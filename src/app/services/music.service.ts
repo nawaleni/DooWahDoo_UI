@@ -3,7 +3,7 @@ import { Music } from '../models/music';
 import { Session } from '../models/session';
 import { KaraokeSession } from '../models/karaokeSession'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -14,30 +14,46 @@ export class MusicService{
     musicUrl : string = 'https://doowahdoo-1573845818014.azurewebsites.net/api/getAllMusic'
     genreUrl : string = 'api/MyGenres.json'
     sessionUrl : string  = 'api/MySession.json'
-    artistByLetterUrl : string = 'https://doowahdoo-1573845818014.azurewebsites.net/api/getAllMusic/byArtistLetter?Artist='
-    musicbyLetterUrl : string = 'https://doowahdoo-1573845818014.azurewebsites.net/api/getAllMusic/byTitleLetter?Title='
-    musicByGenreUrl : string = 'https://doowahdoo-1573845818014.azurewebsites.net/api/getAllMusic/byGenre?Genre='
-    musicByArtistUrl: string = 'https://doowahdoo-1573845818014.azurewebsites.net/api/getAllMusic/byArtistName?Artist='
+    artistByLetterUrl : string;
+    musicbyLetterUrl : string;
+    musicByGenreUrl : string;
+    musicByArtistUrl : string;
     karaokeSessionUrl : string = 'api/MyKaraokeSession.json'
+
+
+    private musicCatalog : Music[];
+    private genreList : string[];
+
+
 
 
     constructor(private http: HttpClient){}
 
     getAllMusic(): Observable<Music[]>{
+        if(this.musicCatalog){
+            return of(this.musicCatalog);
+        }
         return this.http.get<Music[]>(this.musicUrl).pipe(
             tap(data => console.log('All :' + JSON.stringify(data))),
+            tap(data => this.musicCatalog = data),
             catchError(this.handleError)
         )
     }
 
     getAllGenres(): Observable<string[]>{
+        if(this.genreList){
+            return of(this.genreList);
+        }
         return this.http.get<string[]>(this.genreUrl).pipe(
             tap(data => console.log('All :' + JSON.stringify(data))),
+            tap(data => this.genreList = data),
             catchError(this.handleError)
         )
     }
 
     getAllMusicByGenre(genre: string): Observable<Music[]>{
+        this.musicByGenreUrl = 'https://doowahdoo-1573845818014.azurewebsites.net/api/getAllMusic/byGenre?Genre=';
+        console.log(genre);
         this.musicByGenreUrl = this.musicByGenreUrl.concat('"', genre, '"');
 
         return this.http.get<Music[]>(this.musicByGenreUrl).pipe(
@@ -61,7 +77,10 @@ export class MusicService{
     }
 
     getAllArtistbyLetter(char: string): Observable<string[]>{
+        
+        this.artistByLetterUrl = 'https://doowahdoo-1573845818014.azurewebsites.net/api/getAllMusic/byArtistLetter?Artist='
         this.artistByLetterUrl = this.artistByLetterUrl.concat('"', char, '"');
+        
 
         return this.http.get<string[]>(this.artistByLetterUrl).pipe(
             tap(data => console.log('All :' + JSON.stringify(data))),
@@ -70,6 +89,7 @@ export class MusicService{
     }
 
     getAllMusicByLetter(char: string): Observable<Music[]>{
+        this.musicbyLetterUrl = 'https://doowahdoo-1573845818014.azurewebsites.net/api/getAllMusic/byTitleLetter?Title=';
         this.musicbyLetterUrl = this.musicbyLetterUrl.concat('"', char, '"');
 
         return this.http.get<Music[]>(this.musicbyLetterUrl).pipe(
@@ -79,6 +99,7 @@ export class MusicService{
     }
 
     getAllMusicByArtist(artist: string): Observable<Music[]>{
+        this.musicByArtistUrl = 'https://doowahdoo-1573845818014.azurewebsites.net/api/getAllMusic/byArtistName?Artist='
         this.musicByArtistUrl = this.musicByArtistUrl.concat('"', artist, '"');
 
         return this.http.get<Music[]>(this.musicByArtistUrl).pipe(

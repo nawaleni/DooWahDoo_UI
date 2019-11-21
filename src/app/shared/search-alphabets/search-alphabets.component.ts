@@ -9,50 +9,49 @@ import { Music } from 'src/app/models/music';
     templateUrl: "./search-alphabets.component.html",
     styleUrls: ["./search-alphabets.component.scss"]
 })
-export class SearchByAlphabetsComponent{
+export class SearchByAlphabetsComponent {
 
-    constructor(private navCtrl:NavController, private musicService: MusicService,
-        private appParameterService: AppParameterService) {}
+    constructor(private navCtrl: NavController, private musicService: MusicService,
+        private appParameterService: AppParameterService) { }
 
     errorMessage: string;
     artists: string[];
     musicList: Music[];
-    
 
-
-
-
+/*
     @Output() A = new EventEmitter();
     @Output() B = new EventEmitter();
     @Output() C = new EventEmitter();
+    */
 
 
-
-    SearchByTitle(char: string):void{
-        if(this.appParameterService.clickedFrom == 'artist'){
+    SearchByTitle(char: string): void {
+        if (this.appParameterService.clickedFrom == 'artist') {
 
             this.musicService.getAllArtistbyLetter(char).subscribe({
                 next: list => this.artists = list,
                 error: err => this.errorMessage = err,
                 complete: () => this.appParameterService.artists = this.artists
-            }) 
+            })
             setTimeout(() => {
+                console.log(char);
                 this.appParameterService.letter = char;
                 this.navCtrl.navigateRoot('/search-result-artist');
-                }
+            }
             );
         }
-        else if(this.appParameterService.clickedFrom == 'title'){
+        else if (this.appParameterService.clickedFrom == 'title') {
             console.log('clicked from Title Page');
             this.musicService.getAllMusicByLetter(char).subscribe({
                 next: list => this.musicList = list,
                 error: err => this.errorMessage = err,
                 complete: () => this.appParameterService.myMusicList = this.musicList
-            }) 
+            })
             setTimeout(() => {
+                console.log(char);
                 this.appParameterService.letter = char;
                 this.navCtrl.navigateRoot('/search-result');
-                }
+            }
             );
         }
 
@@ -60,7 +59,7 @@ export class SearchByAlphabetsComponent{
 
 
 
-    SearchByTitleA(){
+    SearchByTitleA() {
         this.SearchByTitle('A');
     }
 
