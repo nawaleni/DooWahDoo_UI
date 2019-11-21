@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
+
 @Component({
     selector: "app-search-options",
     templateUrl: "./search-options.component.html",

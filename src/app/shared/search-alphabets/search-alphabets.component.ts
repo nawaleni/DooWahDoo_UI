@@ -13,7 +13,8 @@ import { UserTransition } from 'src/app/services/user-transition';
 export class SearchByAlphabetsComponent {
 
     constructor(private navCtrl: NavController, private musicService: MusicService,
-        private appParameterService: AppParameterService) { }
+        private appParameterService: AppParameterService,
+        private userTransition: UserTransition) { }
 
     errorMessage: string;
     artists: string[];
@@ -37,6 +38,7 @@ export class SearchByAlphabetsComponent {
             setTimeout(() => {
                 console.log(char);
                 this.appParameterService.letter = char;
+                this.userTransition.setTransition();
                 this.navCtrl.navigateRoot('/search-result-artist');
             }
             );
@@ -51,6 +53,7 @@ export class SearchByAlphabetsComponent {
             setTimeout(() => {
                 console.log(char);
                 this.appParameterService.letter = char;
+                this.userTransition.setTransition();
                 this.navCtrl.navigateRoot('/search-result');
             }
             );
