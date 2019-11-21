@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NativeStorage} from '@ionic-native/native-storage/ngx'
 import { AppParameterService } from './services/app-parameter.service';
+import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +27,8 @@ import { AppParameterService } from './services/app-parameter.service';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     NativeStorage,
-    AppParameterService
+    AppParameterService,
+    NativePageTransitions
   ],
   bootstrap: [AppComponent]
 })
