@@ -9,9 +9,18 @@ import { NavController } from '@ionic/angular';
 })
 export class QueuePage implements OnInit {
 
+  public userList: any[] = [];
+
   constructor(private navCtrl:NavController) { }
 
   ngOnInit() {
+
+    //let userList2 = [];
+    this.userList.push({
+      userName: 'Gemmy',
+      userQueue: 1
+    });
+
   }
 
 }

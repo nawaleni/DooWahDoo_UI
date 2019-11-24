@@ -13,6 +13,39 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.circle
+{
+  width:50px;
+  height:50px;
+  border-radius:100px;
+  border:3px solid #73AD21;
+  //border-color:#009900;  
+  font-size: 12px;
+  color:#fff;
+  line-height:45px;
+  text-align:center;
+  background:#000; 
+}
+
+
+.btnMusic{
+  text-align: center;
+  border-color: white;
+  background-color: white;
+  color: black;
+  font-weight:500;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  padding-right: 1.2rem;
+  padding-left: 1.2rem;
+  width: 100%;
+}
+
+.myContainer{
+  overflow: auto;
+  height: 370px;
+}
+
 .containerNew {
   width: 100%;
   padding-right: 1px;

@@ -3,7 +3,7 @@
     <ion-grid>
         <app-home-menu></app-home-menu>
         <div padding size-md="6" size-lg="5" size-xs="12" style="left: 0rem; text-align: center;"> 
-            
+          
 
           
           <embed height="200px" type="image/svg+xml" src="../../../assets/Images/White Logo.svg" />
@@ -11,6 +11,18 @@
           
                 <div text-center style="margin-top: 5rem;">
                   <h3>You will see details about current karaoke session.</h3>
+                </div>
+ 
+                <div class="myContainer" style="padding-block-start: 0.5rem;" *ngIf = 'userList'>
+                  <div class="container" style="padding-block-start: 0.5rem;" *ngFor="let user of userList" >
+
+                          <button type="button" class="btn btn-secondary btnMusic btn-lg btn-block">
+                              <table style="width:100%">
+                              <tr> <td align="left"> {{ user.userName}} </td> <td  align="right"> <div class="circle">{{ user.userQueue}}</div></td> </tr>
+                              </table>
+
+                          </button>
+                  </div>
                 </div>
               
             <div class="card-footer footer">
