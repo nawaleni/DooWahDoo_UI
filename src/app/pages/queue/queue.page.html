@@ -15,13 +15,12 @@
  
                 <div class="myContainer" style="padding-block-start: 0.5rem;" *ngIf = 'userList'>
                   <div class="container" style="padding-block-start: 0.5rem;" *ngFor="let user of userList" >
+                      <button type="button" class="btn btn-secondary btnMusic btn-lg btn-block">
+                        <table style="width:100%">
+                          <tr> <td align="left"> {{ user.userName}} </td> <td  align="right"> <div class="circle">{{ user.userQueue}}</div> </td></tr>
+                        </table>
 
-                          <button type="button" class="btn btn-secondary btnMusic btn-lg btn-block">
-                              <table style="width:100%">
-                              <tr> <td align="left"> {{ user.userName}} </td> <td  align="right"> <div class="circle">{{ user.userQueue}}</div></td> </tr>
-                              </table>
-
-                          </button>
+                      </button>
                   </div>
                 </div>
               
