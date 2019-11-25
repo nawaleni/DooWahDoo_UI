@@ -3,12 +3,17 @@
     <ion-grid>
         <app-home-menu></app-home-menu>
         <div padding size-md="6" size-lg="5" size-xs="12" style="left: 0rem; text-align: center;"> 
-          <embed height="200px" type="image/svg+xml" src="../../../assets/Images/White Logo.svg" />
           
           
-                <div text-center style="margin-top: 5rem;">
-                  <h3>This is a user profile page.</h3>
-                </div>
+          
+          <div class="card" style="width: 100%;" *ngIf = 'userInfo'>
+            <img class="card-img-top" style="width: 200px; height: 200px;" src="../../../assets/Images/sampleUser.png" alt="Card image cap">
+            <div class="card-body">
+              <h1 class="card-title">{{userInfo.firstName}} {{userInfo.lastName}}</h1>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
               
             <div class="card-footer footer" >
                 <app-footer>(music) = 'OnMusicClicked($event)'

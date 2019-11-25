@@ -5,6 +5,7 @@ import { KaraokeSession } from '../models/karaokeSession'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
+import { UserInfo } from '../models/UserInfo';
 
 @Injectable({
     providedIn: 'root'
@@ -19,6 +20,7 @@ export class MusicService{
     musicByGenreUrl : string;
     musicByArtistUrl : string;
     karaokeSessionUrl : string = 'api/MyKaraokeSession.json'
+    userInfoUrl : string = 'https://webapp-191120202122.azurewebsites.net/api/getUserInfo/userid/'
 
 
     private musicCatalog : Music[];
@@ -104,6 +106,19 @@ export class MusicService{
 
         return this.http.get<Music[]>(this.musicByArtistUrl).pipe(
             tap(data => console.log('All :' + JSON.stringify(data))),
+            catchError(this.handleError)
+        )
+    }
+
+    getUserInfo(userId: number): Observable<UserInfo>{
+        this.userInfoUrl = 'https://webapp-191120202122.azurewebsites.net/api/getUserInfo/userid/'
+        this.userInfoUrl = this.userInfoUrl.concat('3');
+        
+        return this.http.get<UserInfo>(this.userInfoUrl).pipe(
+            tap(
+                data => console.log('All :' + JSON.stringify(data))
+                ),
+            
             catchError(this.handleError)
         )
     }

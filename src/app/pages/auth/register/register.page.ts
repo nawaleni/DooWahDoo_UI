@@ -35,7 +35,7 @@ export class RegisterPage implements OnInit {
     console.log(this.userProfile.firstName);
     console.log(form.value.zip);
     console.log(this.userProfile.password)
-    this.http.post('https://doowahdoo-capstone.herokuapp.com/api/v1/employees', {
+    this.http.post('https://webapp-191120202122.azurewebsites.net/api/v1/employees', {
     userProfile : {
           firstName : this.userProfile.firstName,
           lastName : this.userProfile.lastName,

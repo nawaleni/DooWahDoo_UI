@@ -32,13 +32,16 @@ export class LoginPage implements OnInit {
     let headers = new HttpHeaders({ responseType : 'text' });
 
 
-    this.http.post('https://doowahdoo-capstone.herokuapp.com/api/v1/login', {
+    this.http.post('https://webapp-191120202122.azurewebsites.net/api/v1/login', {
           emailId	:	form.value.email,
           password	:	form.value.password
     }, {headers, responseType : 'text'}).subscribe(
       data => {
         console.log(data);
+        this.userTransition.setTransition();
+        this.navCtrl.navigateRoot('/dashboard');
         this.alertService.presentToast('Logged In');
+        
       },
       error =>{
 
@@ -48,8 +51,7 @@ export class LoginPage implements OnInit {
 
       () =>{
 
-        this.userTransition.setTransition();
-        this.navCtrl.navigateRoot('/dashboard');
+        
         // Hello
 
       }
