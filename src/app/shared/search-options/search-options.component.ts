@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { UserTransition } from 'src/app/services/user-transition';
+
 
 @Component({
     selector: "app-search-options",
@@ -8,7 +10,7 @@ import { NavController } from '@ionic/angular';
 })
 export class SearchOptionsComponent{
 
-    constructor(private navCtrl:NavController) {}
+    constructor(private navCtrl: NavController, private userTransition: UserTransition ) {}
 
     @Output() artist = new EventEmitter();
     @Output() title = new EventEmitter();
@@ -17,6 +19,7 @@ export class SearchOptionsComponent{
     SearchByTitle(){
         this.title.emit("Title clicked!");
         setTimeout(() => {
+            this.userTransition.setTransition();
             this.navCtrl.navigateRoot('/search-title');
             }
         ); 
@@ -25,6 +28,7 @@ export class SearchOptionsComponent{
     SearchByArtist() {
         this.artist.emit("Artist clicked!");
         setTimeout(() => {
+            this.userTransition.setTransition();
             this.navCtrl.navigateRoot('/search-artist');
             }
         ); 
@@ -33,6 +37,7 @@ export class SearchOptionsComponent{
     SearchByGenre() {
         this.artist.emit("Genre clicked!");
         setTimeout(() => {
+            this.userTransition.setTransition();
             this.navCtrl.navigateRoot('/search-genre');
             }
         ); 
