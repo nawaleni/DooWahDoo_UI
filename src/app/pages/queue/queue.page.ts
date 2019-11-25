@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { timingSafeEqual } from 'crypto';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { NavController } from '@ionic/angular';
 export class QueuePage implements OnInit {
 
   public userList: any[] = [];
+  //public i: number = 1;
 
   constructor(private navCtrl:NavController) { }
 
@@ -18,21 +20,27 @@ export class QueuePage implements OnInit {
     //let userList2 = [];
     this.userList.push({
       userName: 'Gemmy',
-      userQueue: 1
+      userSong: 'It Starts with One',
+      //userQueue: 1
     });
     this.userList.push({
       userName: 'AMy',
-      userQueue: 2
+      userSong: 'Yellow - Coldplay',
+      //userQueue: 2
     });
     this.userList.push({
       userName: 'Lamy',
-      userQueue: 3
+      userSong: 'Fix you - Coldplay',
+      //userQueue: 3
     });
     this.userList.push({
-      userName: 'Yammy',
-      userQueue: 4
+      userName: 'Linkin Park - Numb',
+      //userQueue: 4
     });
 
+    for( let i: number = 0; i < this.userList.length; i++) {
+      this.userList[i].userQ = i+1;
+    }
   }
 
 }
