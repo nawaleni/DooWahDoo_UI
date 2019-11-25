@@ -5,34 +5,32 @@ import { KaraokeSession } from '../models/karaokeSession'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
-import { UserInfo } from '../models/UserInfo';
 
 @Injectable({
     providedIn: 'root'
 })
 
-export class MusicService{
-    musicUrl : string = 'https://webapp-191120202122.azurewebsites.net/api/getAllMusic'
-    genreUrl : string = 'api/MyGenres.json'
-    sessionUrl : string  = 'api/MySession.json'
-    artistByLetterUrl : string;
-    musicbyLetterUrl : string;
-    musicByGenreUrl : string;
-    musicByArtistUrl : string;
-    karaokeSessionUrl : string = 'api/MyKaraokeSession.json'
-    userInfoUrl : string = 'https://webapp-191120202122.azurewebsites.net/api/getUserInfo/userid/'
+export class MusicService {
+    musicUrl: string = 'https://webapp-191120202122.azurewebsites.net/api/getAllMusic'
+    genreUrl: string = 'api/MyGenres.json'
+    sessionUrl: string  = 'api/MySession.json'
+    artistByLetterUrl: string;
+    musicbyLetterUrl: string;
+    musicByGenreUrl: string;
+    musicByArtistUrl: string;
+    karaokeSessionUrl: string = 'api/MyKaraokeSession.json'
 
 
-    private musicCatalog : Music[];
-    private genreList : string[];
+    private musicCatalog: Music[];
+    private genreList: string[];
 
 
 
 
-    constructor(private http: HttpClient){}
+    constructor(private http: HttpClient) {}
 
-    getAllMusic(): Observable<Music[]>{
-        if(this.musicCatalog){
+    getAllMusic(): Observable<Music[]> {
+        if(this.musicCatalog) {
             return of(this.musicCatalog);
         }
         return this.http.get<Music[]>(this.musicUrl).pipe(
@@ -42,8 +40,8 @@ export class MusicService{
         )
     }
 
-    getAllGenres(): Observable<string[]>{
-        if(this.genreList){
+    getAllGenres(): Observable<string[]> {
+        if(this.genreList) {
             return of(this.genreList);
         }
         return this.http.get<string[]>(this.genreUrl).pipe(
@@ -53,7 +51,7 @@ export class MusicService{
         )
     }
 
-    getAllMusicByGenre(genre: string): Observable<Music[]>{
+    getAllMusicByGenre(genre: string): Observable<Music[]> {
         this.musicByGenreUrl = 'https://webapp-191120202122.azurewebsites.net/api/getAllMusic/byGenre?Genre=';
         console.log(genre);
         this.musicByGenreUrl = this.musicByGenreUrl.concat('"', genre, '"');
@@ -64,25 +62,23 @@ export class MusicService{
         )
     }
 
-    getCurrentSession(): Observable<Session>{
+    getCurrentSession(): Observable<Session> {
         return this.http.get<Session>(this.sessionUrl).pipe(
             tap(data => console.log('All :' + JSON.stringify(data))),
             catchError(this.handleError)
         )
     }
 
-    getMyKaraokeSession(): Observable<KaraokeSession>{
+    getMyKaraokeSession(): Observable<KaraokeSession> {
         return this.http.get<KaraokeSession>(this.karaokeSessionUrl).pipe(
             tap(data => console.log('All :' + JSON.stringify(data))),
             catchError(this.handleError)
-        )
+        );
     }
 
-    getAllArtistbyLetter(char: string): Observable<string[]>{
-        
+    getAllArtistbyLetter(char: string): Observable<string[]> {
         this.artistByLetterUrl = 'https://webapp-191120202122.azurewebsites.net/api/getAllMusic/byArtistLetter?Artist='
         this.artistByLetterUrl = this.artistByLetterUrl.concat('"', char, '"');
-        
 
         return this.http.get<string[]>(this.artistByLetterUrl).pipe(
             tap(data => console.log('All :' + JSON.stringify(data))),
@@ -90,7 +86,7 @@ export class MusicService{
         )
     }
 
-    getAllMusicByLetter(char: string): Observable<Music[]>{
+    getAllMusicByLetter(char: string): Observable<Music[]> {
         this.musicbyLetterUrl = 'https://webapp-191120202122.azurewebsites.net/api/getAllMusic/byTitleLetter?Title=';
         this.musicbyLetterUrl = this.musicbyLetterUrl.concat('"', char, '"');
 
@@ -100,36 +96,31 @@ export class MusicService{
         )
     }
 
-    getAllMusicByArtist(artist: string): Observable<Music[]>{
+    getAllMusicByArtist(artist: string): Observable<Music[]> {
         this.musicByArtistUrl = 'https://webapp-191120202122.azurewebsites.net/api/getAllMusic/byArtistName?Artist='
         this.musicByArtistUrl = this.musicByArtistUrl.concat('"', artist, '"');
 
         return this.http.get<Music[]>(this.musicByArtistUrl).pipe(
             tap(data => console.log('All :' + JSON.stringify(data))),
             catchError(this.handleError)
-        )
+        );
     }
 
-    getUserInfo(userId: number): Observable<UserInfo>{
-        this.userInfoUrl = 'https://webapp-191120202122.azurewebsites.net/api/getUserInfo/userid/'
-        this.userInfoUrl = this.userInfoUrl.concat('3');
-        
-        return this.http.get<UserInfo>(this.userInfoUrl).pipe(
-            tap(
-                data => console.log('All :' + JSON.stringify(data))
-                ),
-            
+    public getUserQueue(): Observable<any[]> {
+
+        return this.http.get<any[]>('https://webapp-191120202122.azurewebsites.net/Karaoke/getUserQueue').pipe(
+            tap(data => console.log('JSON Data: '+ JSON.stringify(data))),
             catchError(this.handleError)
-        )
+        );
     }
 
-    private handleError(err: HttpErrorResponse){
+    private handleError(err: HttpErrorResponse) {
         let errorMessage = '';
 
-        if(err.error instanceof ErrorEvent){
+        if(err.error instanceof ErrorEvent) {
             //client side erro
             errorMessage = `An error occurred:  ${err.error.message}`;
-        }else{
+        } else {
             //backend error
             errorMessage = `Server returned code: ${err.status}, error message: ${err.message}`;
         }
