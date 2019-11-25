@@ -78,10 +78,19 @@
   img.third-r  {  position: relative; height: 3rem; width: 3em;}
   
   .footer {
-    position:absolute;
+    position: fixed;
     bottom:0;
+    top: 20;
+    left: 0;
+    right:0;
     width:100%;
+    
     height:90px;   /* Height of the footer */
-    color: #000000;
+    color: #009090;
+    opacity: 0.8;
+    border: #FFFFFF;
+    background-color: #000000;
+    
+
   }
   
