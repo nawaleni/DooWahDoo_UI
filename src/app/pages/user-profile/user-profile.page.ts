@@ -17,12 +17,12 @@ export class UserProfilePage implements OnInit {
 
   ngOnInit() {
 
-    this.musicService.getUserInfo(this.userId).subscribe({
-      next: userInfo => this.userInfo = userInfo,
-      error: err => this.errorMessage = err
-    }
+    // this.musicService.getUserInfo(this.userId).subscribe({
+    //   next: userInfo => this.userInfo = userInfo,
+    //   error: err => this.errorMessage = err
+    // })
 
-    )
+    
 
   }
 

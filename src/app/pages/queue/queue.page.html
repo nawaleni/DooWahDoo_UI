@@ -8,10 +8,17 @@
           <embed height="200px" type="image/svg+xml" src="../../../assets/Images/White Logo.svg" />
           
           
-                <div text-center style="margin-top: 5rem;">
-                  <h3>You will see details about current karaoke session.</h3>
-                </div>
- 
+
+          <br><br>
+          
+                <button type="button" class="btn btn-secondary btnMusic btn-lg btn-block">
+                    <table style="width:100%" *ngFor='let user of currentUser'>
+                      <tr> <td align="left"> {{ user.userName }} <br>{{ user.userSong }} </td> <td numrows=2 align="right"> <div class="circle2">Now Playing</div> </td></tr>
+
+                      </table>
+                </button>
+          
+                
                 <div class="myContainer" style="padding-block-start: 0.5rem;" *ngIf = 'userList'>
                   <div class="container" style="padding-block-start: 0.5rem;" *ngFor="let user of userList" >
                       <button type="button" class="btn btn-secondary btnMusic btn-lg btn-block">

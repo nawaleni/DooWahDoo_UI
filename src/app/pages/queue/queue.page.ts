@@ -11,7 +11,7 @@ import { NavController } from '@ionic/angular';
 export class QueuePage implements OnInit {
 
   public userList: any[] = [];
-  //public i: number = 1;
+  public currentUser: any[] = [];
 
   constructor(private navCtrl:NavController) { }
 
@@ -20,22 +20,29 @@ export class QueuePage implements OnInit {
     //let userList2 = [];
     this.userList.push({
       userName: 'Gemmy',
-      userSong: 'It Starts with One',
+      userSong: 'It Starts with One'
       //userQueue: 1
     });
+
     this.userList.push({
       userName: 'AMy',
-      userSong: 'Yellow - Coldplay',
+      userSong: 'Yellow - Coldplay'
       //userQueue: 2
     });
     this.userList.push({
       userName: 'Lamy',
-      userSong: 'Fix you - Coldplay',
+      userSong: 'Fix you - Coldplay'
       //userQueue: 3
     });
     this.userList.push({
-      userName: 'Linkin Park - Numb',
+      userName: 'Xamy',
+      userSong: 'Linkin Park - Numb'
       //userQueue: 4
+    });
+
+    this.currentUser.push({
+      userName: 'Dammy',
+      userSong: 'Graveyard - Halsey'
     });
 
     for( let i: number = 0; i < this.userList.length; i++) {
