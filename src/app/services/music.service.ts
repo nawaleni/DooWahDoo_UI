@@ -106,9 +106,17 @@ export class MusicService {
         );
     }
 
-    public getUserQueue(): Observable<any[]> {
+    public getUserQueue() {
 
-        return this.http.get<any[]>('https://webapp-191120202122.azurewebsites.net/Karaoke/getUserQueue').pipe(
+        return this.http.get<any[]>('https://webapp-191120202122.azurewebsites.net/Karaoke/gig/1/getUserQueue').pipe(
+            tap(data => console.log('JSON Data: '+ JSON.stringify(data))),
+            catchError(this.handleError)
+        );
+    }
+
+    public getCurrentUserQueue() {
+
+        return this.http.get<any[]>('https://webapp-191120202122.azurewebsites.net/Karaoke/gig/1/getCurrentUserQueue').pipe(
             tap(data => console.log('JSON Data: '+ JSON.stringify(data))),
             catchError(this.handleError)
         );

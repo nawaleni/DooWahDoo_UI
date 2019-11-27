@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-//import { timingSafeEqual } from 'crypto';
+import { MusicService } from 'src/app/services/music.service';
+
+// import { timingSafeEqual } from 'crypto';
 
 
 @Component({
@@ -10,44 +12,38 @@ import { NavController } from '@ionic/angular';
 })
 export class QueuePage implements OnInit {
 
-  public userList: any[] = [];
+  public userList = [];
   public currentUser: any[] = [];
 
-  constructor(private navCtrl:NavController) { }
+  constructor(private navCtrl: NavController, 
+              private musicService: MusicService
+              ) { }
 
   ngOnInit() {
 
-    //let userList2 = [];
-    this.userList.push({
-      userName: 'Gemmy',
-      userSong: 'It Starts with One'
-      //userQueue: 1
-    });
+    this.musicService.getCurrentUserQueue().subscribe(
+      (data: any[]) => {
+        console.log(data);
+        this.currentUser = data;
+      }
+    );
 
-    this.userList.push({
-      userName: 'AMy',
-      userSong: 'Yellow - Coldplay'
-      //userQueue: 2
-    });
-    this.userList.push({
-      userName: 'Lamy',
-      userSong: 'Fix you - Coldplay'
-      //userQueue: 3
-    });
-    this.userList.push({
-      userName: 'Xamy',
-      userSong: 'Linkin Park - Numb'
-      //userQueue: 4
-    });
+    this.musicService.getUserQueue().subscribe(
+      (data: any[]) => {
+        console.log(data);
+        for (let i = 0; i < data.length; i++ ) {
+          data[i].userQ = i + 1;
+        }
+        this.userList = data;
+      }
+    );
+
 
     this.currentUser.push({
       userName: 'Dammy',
-      userSong: 'Graveyard - Halsey'
+      songName: 'Graveyard - Halsey'
     });
 
-    for( let i: number = 0; i < this.userList.length; i++) {
-      this.userList[i].userQ = i+1;
-    }
   }
 
 }
