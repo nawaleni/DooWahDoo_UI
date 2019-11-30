@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { AlertService } from 'src/app/services/alert.service';
+// import { AlertService } from 'src/app/services/alert.service';
 import { NavController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
 
   constructor(
     private authservice: AuthService,
-    private alertService: AlertService,
+    // private alertService: AlertService,
     private navCtrl: NavController,
     private http: HttpClient,
     private userTransition : UserTransition
@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
   
     // let headers = new HttpHeaders({ responseType : 'text' });
 
-    
+    /*
     this.http.post('https://webapp-191120202122.azurewebsites.net/api/v1/login', {
           emailId	:	form.value.email,
           password	:	form.value.password
@@ -58,7 +58,7 @@ export class LoginPage implements OnInit {
 
       }
       );
-      
+      */
 
   }
 

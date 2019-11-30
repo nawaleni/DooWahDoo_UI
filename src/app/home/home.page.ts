@@ -20,7 +20,7 @@ export class HomePage implements OnInit{
     
 
     setTimeout(() => {
-        this.userTransition.setTransition();
+        // this.userTransition.setTransition();
         this.navCtrl.navigateRoot('/login');
     }, 1200);  //1.2s
   }
