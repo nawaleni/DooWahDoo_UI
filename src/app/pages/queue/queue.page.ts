@@ -13,7 +13,7 @@ import { MusicService } from 'src/app/services/music.service';
 export class QueuePage implements OnInit {
 
   public userList = [];
-  public currentUser: any[] = [];
+  public currentUser = [];
 
   constructor(private navCtrl: NavController, 
               private musicService: MusicService
@@ -22,9 +22,11 @@ export class QueuePage implements OnInit {
   ngOnInit() {
 
     this.musicService.getCurrentUserQueue().subscribe(
-      (data: any[]) => {
+      (data: any) => {
         console.log(data);
-        this.currentUser = data;
+        data.userName = 'Dammy';
+        data.songName = 'Graveyard - Halsey';
+        this.currentUser.push(data);
       }
     );
 
@@ -39,10 +41,7 @@ export class QueuePage implements OnInit {
     );
 
 
-    this.currentUser.push({
-      userName: 'Dammy',
-      songName: 'Graveyard - Halsey'
-    });
+
 
   }
 
