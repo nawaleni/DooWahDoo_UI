@@ -28,14 +28,16 @@ export class LoginPage implements OnInit {
   }
 
   login(form: NgForm){  
+
+    this.authservice.login(form.value.email, form.value.password);
   
-    let headers = new HttpHeaders({ responseType : 'text' });
+    // let headers = new HttpHeaders({ responseType : 'text' });
 
-
+    
     this.http.post('https://webapp-191120202122.azurewebsites.net/api/v1/login', {
           emailId	:	form.value.email,
           password	:	form.value.password
-    }, {headers, responseType : 'text'}).subscribe(
+    }).subscribe(
       data => {
         console.log(data);
         this.userTransition.setTransition();
@@ -56,6 +58,7 @@ export class LoginPage implements OnInit {
 
       }
       );
+      
 
   }
 

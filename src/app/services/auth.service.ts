@@ -19,16 +19,17 @@ export class AuthService {
     private env: EnvService,
   ) { }
 
-login(email: String, password: String)
-{
-  return this.http.post(this.env.API_URL + 'login',
-  {email: email, password: password}
+login(email: any, password: any){
+  let headers = new HttpHeaders({ responseType : 'text' });
+
+  return this.http.post('https://webapp-191120202122.azurewebsites.net/api/v1/login',
+  {emailId: email, password: password}, { responseType : 'text' }
   ).pipe(
     tap(token => {
       this.storage.setItem('token', token)
       .then(
         () => {
-          console.log('Token Stored');
+          console.log('Token Stored is ' + token);
         },
         error => console.error('Error storing item', error)
         );
@@ -36,6 +37,15 @@ login(email: String, password: String)
       this.isLoggedIn = true;
       return token;
     }),
+  )
+  .subscribe(
+    data => {
+      console.log(data);
+    },
+    error => console.log(error),
+    () =>{
+
+    }
   );
 }
 
