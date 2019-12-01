@@ -42,29 +42,7 @@ export class SearchResultPage implements OnInit {
 
   buttonClicked(music: any) {
 
-
-    /*
-    this.platform.ready().then(() => {
-
-      this.dialogs.confirm('Are you sure? ', 'Do you want to add this to your user queue?', ['Yes', 'No'])
-      .then(
-        (value) => console.log('Value selected is ' + value)
-      )
-      .catch(
-        e => console.log('Error: ' + e)
-      );
-
-    });
-    
-
-    this.presentAlertConfirm()
-    .then(
-      (value) => console.log('Alert value: ' + value),
-      (e) => console.log('alert error ' + e)
-    );
-      */
-
-    let alert = this.alert.promptAlert()
+    this.alert.promptAlert()
     .then(
       (res) => {
         if(res == 'Okay') {

@@ -4,6 +4,16 @@
   background-image: linear-gradient(#E45D9E, #875FA8, #000000); /* Standard syntax (must be last) */
 }
 
+.card-img-top
+{
+  border-radius: 50%;
+  border: 2px solid #000000;
+  padding: 5px;
+  width: 100%;
+  height: auto;
+}
+
+
 .cont {
   position: relative;
   height: 100%;

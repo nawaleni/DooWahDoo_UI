@@ -4,14 +4,17 @@
         <app-home-menu></app-home-menu>
         <div padding size-md="6" size-lg="5" size-xs="12" style="left: 0rem; text-align: center;"> 
           
+          <div *ngIf = 'userInfo'>
+            <img class="card-img-top" style="width: 200px; height: 200px;" src="../../../assets/Images/BradPitt.jpg" alt="Card image cap">
+          </div>
           
-          
-          <div class="card" style="width: 100%;" *ngIf = 'userInfo'>
-            <img class="card-img-top" style="width: 200px; height: 200px;" src="../../../assets/Images/sampleUser.png" alt="Card image cap">
+          <br><br>
+          <div class="card" style="width: 100%;" *ngIf = 'userInfo'>  
             <div class="card-body">
               <h1 class="card-title">{{userInfo.firstName}} {{userInfo.lastName}}</h1>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <p class="card-text"> Phone #: {{ userInfo.contactNo }}</p>
+              <p class="card-text"> Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
             </div>
           </div>
               

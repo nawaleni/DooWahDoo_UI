@@ -3,7 +3,7 @@ export interface UserInfo{
     firstName: string,
     lastName: string,
     profilePic: string,
-    contactNumber: number,
+    contactNo: number,
     userName: string,
     dob: number,
     addressDetails: string

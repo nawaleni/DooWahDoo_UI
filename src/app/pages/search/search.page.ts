@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Music } from 'src/app/models/music';
 import { MusicService } from 'src/app/services/music.service';
+import { ShowDialogService } from 'src/app/services/show-dialog.service';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Component({
   selector: 'app-search',
@@ -16,7 +18,10 @@ export class SearchPage implements OnInit {
   musicList: Music[];
   filteredMusicList: Music[];
 
-  constructor(private navCtrl:NavController, private musicService: MusicService) { 
+  constructor(
+    private nativeStorage: NativeStorage,
+    private alert: ShowDialogService,
+    private navCtrl: NavController, private musicService: MusicService) { 
     this.initializeItems();
 
   }
@@ -52,6 +57,35 @@ export class SearchPage implements OnInit {
 
 
   ngOnInit() {
+  }
+
+  buttonClicked(music: any) {
+
+    this.alert.promptAlert()
+    .then(
+      (res) => {
+        if(res == 'Okay') {
+          this.nativeStorage.getItem('userId')
+          .then(
+            (data) => {
+              console.log('Value retrieved' + data);
+              this.musicService.setUserToQueue(data, music.musicId, 1);
+            },
+            (error) => console.log('Error: ' + error)
+          )
+          .catch(
+            e => console.log('Error: ' + e)
+          );
+          console.log('button clicked is: ' + music.musicId);
+        }
+        else {
+          // do nothing
+        }
+      },
+      (e) => console.log('err: ' + e)
+    );
+
+
   }
 
 }

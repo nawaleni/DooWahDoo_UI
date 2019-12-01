@@ -13,16 +13,14 @@ export class UserProfilePage implements OnInit {
   userInfo: UserInfo;
   errorMessage: string;
   userId: number = 3;
-  constructor(private navCtrl:NavController, private musicService: MusicService) { }
+  constructor(private navCtrl: NavController, private musicService: MusicService) { }
 
   ngOnInit() {
 
-    // this.musicService.getUserInfo(this.userId).subscribe({
-    //   next: userInfo => this.userInfo = userInfo,
-    //   error: err => this.errorMessage = err
-    // })
-
-    
+    this.musicService.getUserInfo(this.userId).subscribe({
+       next: userInfo => this.userInfo = userInfo,
+       error: err => this.errorMessage = err
+    });
 
   }
 
