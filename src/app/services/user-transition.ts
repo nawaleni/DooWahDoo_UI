@@ -18,7 +18,13 @@ setTransition(){
         fixedPixelsTop: 0,
         fixedPixelsBottom: 60
     };
-    this.nativePageTransitions.fade(options);
+    this.nativePageTransitions.fade(options)
+    .then(
+        (value) => console.log('User Transistion complete'),
+    )
+    .catch(
+        e => console.log('Error: ' + e)
+    );
 }
 }
 

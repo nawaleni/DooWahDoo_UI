@@ -4,7 +4,7 @@ import { NavController } from '@ionic/angular';
 import { MusicService } from 'src/app/services/music.service';
 import { AppParameterService } from 'src/app/services/app-parameter.service';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { Dialogs } from '@ionic-native/dialogs';
+
 
 @Component({
   selector: 'app-search-result',
@@ -15,9 +15,9 @@ export class SearchResultPage implements OnInit {
   
   errorMessage: string;
   constructor(
-    private dialogs: Dialogs,
+    
     private nativeStorage: NativeStorage,
-    private navCtrl:NavController, private musicService: MusicService,
+    private navCtrl: NavController, private musicService: MusicService,
     private appParameterService: AppParameterService) { 
   
   }
@@ -26,7 +26,7 @@ export class SearchResultPage implements OnInit {
     return this.appParameterService.letter;
   }
 
-  get musicList(): Music[]{
+  get musicList(): Music[] {
     return this.appParameterService.myMusicList;
   }
 
@@ -43,7 +43,7 @@ export class SearchResultPage implements OnInit {
     .catch(
       e => console.log('Error: ' + e)
     );
-
+    
     this.nativeStorage.getItem('userId')
     .then(
       (data) => {

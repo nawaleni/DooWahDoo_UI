@@ -40,9 +40,9 @@ export class SearchResultArtistPage implements OnInit {
       error: err => this.errorMessage = err,
       complete: () => {
                         this.userTransition.setTransition();
-                        this.navCtrl.navigateRoot('/search-result'); 
+                        this.navCtrl.navigateRoot('/search-result');
                       }
-    })
+    });
   }
 
   
