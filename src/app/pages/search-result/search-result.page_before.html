@@ -31,7 +31,7 @@
 
             <div class="card-body">
               <div class="col" style="padding-block-start: 2rem;  padding-block-end: 1rem" *ngIf = 'musicList'>
-                <button style="text-align:center;" type="button" class="btn btnMusic" *ngFor="let music of musicList">
+                <button style="text-align:center;" type="button" class="btn btnMusic" *ngFor="let music of musicList" (click)="buttonClicked(music)">
                   <tr align="center">{{ music.title}}</tr>
                   <tr align="center">{{ music.artist}}</tr>
                 </button>

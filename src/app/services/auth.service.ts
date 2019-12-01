@@ -40,8 +40,8 @@ login(email: any, password: any){
 
       let userData: any = data;
       console.log("JSON: " + userData.Status);
-      if (userData.Status == 'Wrong Password') {
-          this.alertService.presentToast('Wrong Login Credentials');
+      if (userData.Status != 'Success') {
+          this.alertService.presentToast(userData.Status);
       }
       else
       {

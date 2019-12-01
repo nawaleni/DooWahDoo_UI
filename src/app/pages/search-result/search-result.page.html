@@ -22,7 +22,7 @@
                     <div class="myContainer" style="padding-block-start: 0.5rem;" *ngIf = 'musicList'>
                         <div class="container" style="padding-block-start: 0.5rem;" *ngFor="let music of musicList" >
 
-                                <button type="button" class="btn btn-secondary btnMusic btn-lg btn-block">
+                                <button type="button" class="btn btn-secondary btnMusic btn-lg btn-block" (click)="buttonClicked(music)">
                                         <tr> <td> {{ music.title}} </td>
                                         </tr>
                                     <tr> <td> {{ music.artist}}</td></tr>

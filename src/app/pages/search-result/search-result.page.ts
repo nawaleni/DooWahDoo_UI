@@ -29,4 +29,8 @@ export class SearchResultPage implements OnInit {
   ngOnInit() {
   }
 
+  buttonClicked(music: any){
+    console.log('button clicked is: ' + music.musicId);
+  }
+
 }
