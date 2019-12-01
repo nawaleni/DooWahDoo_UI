@@ -5,6 +5,7 @@ import { KaraokeSession } from '../models/karaokeSession'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
+import { configFromSession } from '@ionic/core';
 
 @Injectable({
     providedIn: 'root'
@@ -103,6 +104,21 @@ export class MusicService {
         return this.http.get<Music[]>(this.musicByArtistUrl).pipe(
             tap(data => console.log('All :' + JSON.stringify(data))),
             catchError(this.handleError)
+        );
+    }
+
+    public setUserToQueue(user: number, music: number, gig: number) {
+
+        this.http.post('https://webapp-191120202122.azurewebsites.net/Karaoke/createSession', {
+            userId: user, musicId: music, gigId: gig
+        },
+        {
+            responseType : 'json'
+        }
+        )
+        .subscribe(
+            data => console.log('setUserToQueueResponse ' + data),
+            error => console.log('Error setUserToQueue: ' + error)
         );
     }
 

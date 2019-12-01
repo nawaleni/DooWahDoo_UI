@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
     "@ionic-native/core": "^5.0.0",
+    "@ionic-native/dialogs": "^4.20.0",
     "@ionic-native/native-page-transitions": "^5.17.0",
     "@ionic-native/native-storage": "^5.17.1",
     "@ionic-native/splash-screen": "^5.0.0",
@@ -36,6 +37,7 @@
     "cordova-android": "7.1.4",
     "cordova-browser": "^5.0.4",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-dialogs": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.1.2",
     "cordova-plugin-nativestorage": "2.3.2",
@@ -85,7 +87,8 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "com.telerik.plugins.nativepagetransitions": {}
+      "com.telerik.plugins.nativepagetransitions": {},
+      "cordova-plugin-dialogs": {}
     },
     "platforms": [
       "android",
