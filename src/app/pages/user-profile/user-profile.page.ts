@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { MusicService } from 'src/app/services/music.service';
-import { UserInfo } from 'src/app/models/UserInfo';
+import { UserInfo } from '../../models/UserInfo';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Component({

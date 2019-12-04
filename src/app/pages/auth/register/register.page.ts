@@ -5,6 +5,7 @@ import { AlertService } from "../../../services/alert.service";
 import { NavController } from '@ionic/angular';
 import { User } from '../../../models/user';
 import { UserTransition } from 'src/app/services/user-transition';
+import { LoginModel } from 'src/app/models/loginModel';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,7 @@ import { UserTransition } from 'src/app/services/user-transition';
 })
 export class RegisterPage implements OnInit {
   
+  registerModel: any = null;
 
   userProfile : User = {
     firstName : null,
@@ -51,7 +53,18 @@ export class RegisterPage implements OnInit {
         
     }).subscribe(
       data => {
-        this.alertService.presentToast("Registered Successfully!");
+        console.log(data);
+        this.registerModel = data;
+        this.userTransition.setTransition();
+        if(this.registerModel.userInfo !=  null){
+          this.navCtrl.navigateRoot('/dashboard');
+          this.alertService.presentToast('Registered Successfully!');
+          this.userTransition.setTransition();
+          this.navCtrl.navigateRoot('/login');
+        }
+        else{
+          this.alertService.presentToast("User is already registered, please login");
+        }
       },
       error =>{
         console.log(error);
@@ -60,7 +73,7 @@ export class RegisterPage implements OnInit {
       () =>{
 
         this.userTransition.setTransition();
-        this.navCtrl.navigateRoot('/login');
+        //this.navCtrl.navigateRoot('/login');
       }
     );
   

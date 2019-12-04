@@ -19,16 +19,19 @@
                       </div>
               </div>
 
-              
-              <div class="container" style="padding-block-start: 0.5rem;" *ngFor="let artist of artists" >
+              <div class="myContainer" style="padding-block-start: 0.5rem;" *ngIf = 'artists'>
+                <div class="container" style="padding-block-start: 0.5rem;" *ngFor="let artist of artists" >
 
                   <button #divArtist type="button" class="btn btn-secondary btnMusic btn-lg btn-block"
                   (click) = "OnArtistClick()">
-                          <tr> <td> {{artist}} </td>
-                          </tr>
+                                <tr> <td> {{ artist}} </td>
+                                </tr>
 
-                  </button>
-              </div>
+                        </button>
+                </div>
+            </div>
+
+              
 
 
               <div class="card-footer footer" >

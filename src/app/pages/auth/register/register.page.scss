@@ -45,7 +45,14 @@ ion-col {
 }
 
 ion-button {
-    font-weight: 200;
+    font-weight: 500;
+    background: #E45D9E;
+}
+
+.button{
+    font-weight: 500;
+    background: #E45D9E;
+    color: white;
 }
 
 @media (min-width: 240px) and (max-width: 768px) {

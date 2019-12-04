@@ -10,6 +10,7 @@ export class AppParameterService{
     letter: string;
     myMusic: Music;
     myMusicList: Music[];
+    musicCatlog: Music[];
     clickedFrom: string;
 
     constructor(){}

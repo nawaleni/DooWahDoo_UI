@@ -4,6 +4,7 @@ import { Music } from 'src/app/models/music';
 import { MusicService } from 'src/app/services/music.service';
 import { ShowDialogService } from 'src/app/services/show-dialog.service';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { AppParameterService } from 'src/app/services/app-parameter.service';
 
 @Component({
   selector: 'app-search',
@@ -21,17 +22,25 @@ export class SearchPage implements OnInit {
   constructor(
     private nativeStorage: NativeStorage,
     private alert: ShowDialogService,
-    private navCtrl: NavController, private musicService: MusicService) { 
+    private navCtrl: NavController, private musicService: MusicService,
+    private appParameterService: AppParameterService) { 
     this.initializeItems();
 
   }
 
   initializeItems() {
+    if(this.appParameterService.musicCatlog == null){
+
     this.musicService.getAllMusic().subscribe({
       next: list => this.musicList = list,
       error: err => this.errorMessage = err,
       complete: () => this.filteredMusicList = this.musicList
     })
+  }
+  else{
+    this.musicList = this.appParameterService.musicCatlog;
+    this.filteredMusicList = this.musicList;
+  }
 
   }
 

@@ -6,7 +6,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { configFromSession } from '@ionic/core';
-import { UserInfo } from '../models/UserInfo';
+import { UserInfo } from '../models/UserInfo'
 
 @Injectable({
     providedIn: 'root'
@@ -14,7 +14,7 @@ import { UserInfo } from '../models/UserInfo';
 
 export class MusicService {
     musicUrl: string = 'https://webapp-191120202122.azurewebsites.net/api/getAllMusic'
-    genreUrl: string = 'api/MyGenres.json'
+    genreUrl: string = 'https://webapp-191120202122.azurewebsites.net/api/getAllGenre'
     sessionUrl: string  = 'api/MySession.json'
     artistByLetterUrl: string;
     musicbyLetterUrl: string;

@@ -32,7 +32,7 @@ export class DashboardPage implements OnInit {
 
   myFunction() {
     var self = this;
-    setInterval(function(){self.getSessionInfo();}, 5000); 
+    setInterval(function(){self.getSessionInfo();}, 30000); 
   }
 
   getSessionInfo() {

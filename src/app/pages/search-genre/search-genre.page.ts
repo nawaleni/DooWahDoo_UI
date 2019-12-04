@@ -12,7 +12,7 @@ export class SearchGenrePage implements OnInit {
 
   
   errorMessage: string;
-  genreList: any[];
+  genreList: string[];
   @ViewChild('myGenre', {static: false}) myGenreElement: ElementRef;
 
   constructor(private navCtrl:NavController, private musicService: MusicService, 
