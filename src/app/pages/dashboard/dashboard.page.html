@@ -2,21 +2,19 @@
 <ion-content>
     <ion-grid>
         <div padding size-md="6" size-lg="5" size-xs="12" style="left: 0rem; text-align: center;"> 
-          
-          <div *ngFor = 'let session of mySession'>
+          <div *ngFor = 'let user of currentUser'>
             <img height="150px" src="../../../assets/Images/White Logo.svg" />
             <ion-row class="ion-justify-content-center">
                 <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
                   <div class="statusContainer" style="padding-block-start: 2rem;" > 
                     <h5>You'hv joined</h5>
-                    <h1>{{session.placeName}}</h1>
+                    <h1>{{user.placeName}}</h1>
                     <h5>hosted by</h5>
-                    <h1>{{session.KJName}}</h1>
-                    <h2>Now Playing</h2>
-                    <button type="button" class="btn btn-secondary btnMusic btn-lg btn-block" style="text-align: center;">
-                        <tr> <td> {{ session.artist}} </td>
-                        </tr>
-                    <tr> <td> {{ session.musicTitle}}</td></tr>
+                    <h1>{{user.KJName}}</h1>
+                    <h3>Now Playing</h3>
+                    <button type="button" class="btn btn-secondary btnMusic btn-lg btn-block">
+                    <tr> <td align="left"> {{ user.userName }} </td> </tr>
+                    <tr> <td> {{ user.musicTitle }}</td></tr>
                     </button>
                   </div>
                 </ion-col>
@@ -30,26 +28,19 @@
                       <h6>You will be singing</h6>
                       <h3>{{karaokeSession.artist}}</h3>
                       <h3>"{{karaokeSession.musicTitle}}"</h3>
-                      <ion-icon class="timer" ios="ios-timer" md="md-timer"></ion-icon>
-                      <h1>{{karaokeSession.time}} minutes</h1>
+                      <!-- <ion-icon class="timer" ios="ios-timer" md="md-timer"></ion-icon> -->
+                      <h3>~{{karaokeSession.time}} minutes</h3>
+                      <!-- 
                       <h2>Now Playing</h2>
                       <button type="button" class="btn btn-secondary btnMusic btn-lg btn-block"   style="text-align: center;">
                           <tr> Mike M. </tr>
                           <tr> Life in Mars?</tr>
                       </button>
+                      --> 
                     </div>
                   </ion-col>
                 </ion-row>
             </div>
-
-
-
-          
-
-                
-
-            
-          
           
             <div class="card-footer footer" >
               

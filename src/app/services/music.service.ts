@@ -21,7 +21,7 @@ export class MusicService {
     musicByGenreUrl: string;
     musicByArtistUrl: string;
     userInfoUrl: string;
-    karaokeSessionUrl: string = 'api/MyKaraokeSession.json'
+    karaokeSessionUrl: string = 'api/MyKaraokeSession.json';
 
 
     private musicCatalog: Music[];
@@ -63,14 +63,14 @@ export class MusicService {
         return this.http.get<Music[]>(this.musicByGenreUrl).pipe(
             tap(data => console.log('All :' + JSON.stringify(data))),
             catchError(this.handleError)
-        )
+        );
     }
 
     getCurrentSession(): Observable<Session> {
         return this.http.get<Session>(this.sessionUrl).pipe(
             tap(data => console.log('All :' + JSON.stringify(data))),
             catchError(this.handleError)
-        )
+        );
     }
 
     getMyKaraokeSession(): Observable<KaraokeSession> {
@@ -142,6 +142,15 @@ export class MusicService {
             tap(data => console.log('JSON Data: '+ JSON.stringify(data))),
             catchError(this.handleError)
         );
+    }
+
+    public getTimeRemaining() {
+
+        return this.http.get<string>('https://webapp-191120202122.azurewebsites.net/Karaoke/gig/1/3/getTimer').pipe(
+            tap(data => console.log('JSON Data: ' + JSON.stringify(data))),
+            catchError(this.handleError)
+        );
+
     }
 
     public getCurrentUserQueue() {

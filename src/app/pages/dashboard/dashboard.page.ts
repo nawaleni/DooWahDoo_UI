@@ -12,9 +12,10 @@ import { KaraokeSession } from '../../models/karaokeSession';
 export class DashboardPage implements OnInit {
 
   errorMessage: string;
-  mySession : Session;
-  myKaraokeSession : KaraokeSession;
-  constructor(private navCtrl:NavController, private musicService: MusicService) {}
+  mySession: Session;
+  myKaraokeSession: KaraokeSession;
+  currentUser = [];
+  constructor(private navCtrl: NavController, private musicService: MusicService) {}
 
   ngOnInit() {
     // do init at here for current route.  
@@ -22,23 +23,29 @@ export class DashboardPage implements OnInit {
     this.myFunction();
   }
 
-  myFunction(){
+  myFunction() {
     var self = this;
     setInterval(function(){self.getSessionInfo();}, 5000); 
   }
 
-  getSessionInfo(){
+  getSessionInfo() {
     console.log("getting Session data");
     this.musicService.getCurrentSession().subscribe({
       next: mySession => this.mySession = mySession,
       error: err => this.errorMessage = err
+    });
 
-    })
-
-    this.musicService.getMyKaraokeSession().subscribe({
-      next: myKaraokeSession => this.myKaraokeSession = myKaraokeSession,
-      error: err => this.errorMessage = err
-    })
+    this.musicService.getCurrentUserQueue().subscribe(
+      (data: any) => {
+        this.currentUser = [];
+        console.log(data);
+        data.userName = 'Dammy';
+        data.musicTitle = 'Graveyard - Halsey';
+        data.placeName = 'Mist RoofTop Bar';
+        data.KJname = 'Venessa Feil';
+        this.currentUser.push(data);
+      }
+    );
 
   }
 

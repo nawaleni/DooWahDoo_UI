@@ -8,7 +8,7 @@ import { MusicService } from 'src/app/services/music.service';
 @Component({
   selector: 'app-queue',
   templateUrl: './queue.page.html',
-  styleUrls: ['./queue.page.scss'],
+  styleUrls: ['./queue.page.scss']
 })
 export class QueuePage implements OnInit {
 
