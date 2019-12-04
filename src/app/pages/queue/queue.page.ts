@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { MusicService } from 'src/app/services/music.service';
+import * as moment from 'moment';
 
 // import { timingSafeEqual } from 'crypto';
 
@@ -12,20 +13,33 @@ import { MusicService } from 'src/app/services/music.service';
 })
 export class QueuePage implements OnInit {
 
+
+
   public userList = [];
   public currentUser = [];
+  private timeoutId: any;
 
   constructor(private navCtrl: NavController, 
-              private musicService: MusicService
+              private musicService: MusicService,
+              
               ) { }
 
   ngOnInit() {
 
+
+
+
+
+
+  }
+
+  getDataToBind(){
     this.musicService.getCurrentUserQueue().subscribe(
       (data: any) => {
         console.log(data);
-        data.userName = 'Dammy';
-        data.songName = 'Graveyard - Halsey';
+        this.currentUser = [];
+        // data.userName = 'Dammy';
+        // data.songName = 'Graveyard - Halsey';
         this.currentUser.push(data);
       }
     );
@@ -40,9 +54,29 @@ export class QueuePage implements OnInit {
       }
     );
 
-
-
-
   }
+
+  ionViewDidEnter() {
+    this.initRefresh();
+  }
+  
+  ionViewDidLeave() {
+    this.stopRefresh();
+  }
+
+  private initRefresh() {
+    this.refresh();
+    this.timeoutId = setInterval(() => this.refresh(), 5 * 1000);
+  }
+
+  private stopRefresh() {
+    clearInterval(this.timeoutId);
+  }
+
+  private refresh() {
+    this.getDataToBind();
+    console.log(`Refresh at ${moment().format('LTS')}`);
+  }
+
 
 }

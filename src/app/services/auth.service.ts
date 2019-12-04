@@ -6,6 +6,7 @@ import { EnvService } from './env.service';
 import { User } from '../models/user';
 import { AlertService } from 'src/app/services/alert.service';
 import { NavController } from '@ionic/angular';
+import { UserTransition } from './user-transition';
 
 
 @Injectable({
@@ -17,6 +18,7 @@ export class AuthService {
   token: any;
 
   constructor(
+    private userTransition: UserTransition,
     private navCtrl: NavController,
     private alertService: AlertService,
     private http: HttpClient,
@@ -58,6 +60,7 @@ login(email: any, password: any){
           errorData => console.log(errorData)
 
         );
+        this.userTransition.setTransition();
         this.navCtrl.navigateRoot('/dashboard');
         this.alertService.presentToast('Logged In');
       }
