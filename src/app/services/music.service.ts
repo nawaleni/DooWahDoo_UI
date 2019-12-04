@@ -139,19 +139,18 @@ export class MusicService {
     public getUserQueue() {
 
         return this.http.get<any[]>('https://webapp-191120202122.azurewebsites.net/Karaoke/gig/1/getUserQueue').pipe(
-            tap(data => console.log('JSON Data: '+ JSON.stringify(data))),
-            catchError(this.handleError)
-        );
-    }
-
-    public getTimeRemaining() {
-
-        return this.http.get<string>('https://webapp-191120202122.azurewebsites.net/Karaoke/gig/1/3/getTimer').pipe(
             tap(data => console.log('JSON Data: ' + JSON.stringify(data))),
             catchError(this.handleError)
         );
+    }
+
+    public getTimeRemaining(): Observable<string> {
+
+        return this.http.get('https://webapp-191120202122.azurewebsites.net/Karaoke/gig/1/3/getTimer', {responseType: 'text'});
 
     }
+
+    
 
     public getCurrentUserQueue() {
 
@@ -160,6 +159,7 @@ export class MusicService {
             catchError(this.handleError)
         );
     }
+
 
     private handleError(err: HttpErrorResponse) {
         let errorMessage = '';
