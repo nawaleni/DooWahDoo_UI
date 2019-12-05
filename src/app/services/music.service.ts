@@ -13,9 +13,9 @@ import { UserInfo } from '../models/UserInfo'
 })
 
 export class MusicService {
-    musicUrl: string = 'https://webapp-191120202122.azurewebsites.net/api/getAllMusic'
-    genreUrl: string = 'https://webapp-191120202122.azurewebsites.net/api/getAllGenre'
-    sessionUrl: string  = 'api/MySession.json'
+    musicUrl: string = 'https://webapp-191120202122.azurewebsites.net/api/getAllMusic';
+    genreUrl: string = 'https://webapp-191120202122.azurewebsites.net/api/getAllGenre';
+    sessionUrl: string  = 'api/MySession.json';
     artistByLetterUrl: string;
     musicbyLetterUrl: string;
     musicByGenreUrl: string;
