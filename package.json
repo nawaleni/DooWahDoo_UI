@@ -36,6 +36,7 @@
     "cordova": "^9.0.0",
     "cordova-android": "7.1.4",
     "cordova-browser": "^5.0.4",
+    "cordova-ios": "5.1.1",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-dialogs": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
@@ -93,7 +94,8 @@
     },
     "platforms": [
       "android",
-      "browser"
+      "browser",
+      "ios"
     ]
   }
 }

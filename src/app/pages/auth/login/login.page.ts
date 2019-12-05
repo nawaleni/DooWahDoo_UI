@@ -38,6 +38,7 @@ export class LoginPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.initializeItems();
     
   }
 
@@ -67,7 +68,7 @@ export class LoginPage implements OnInit {
         if(this.loginModel.userInfo !=  null){
           this.navCtrl.navigateRoot('/dashboard');
           this.alertService.presentToast('Logged In');
-          this.initializeItems();
+          //this.initializeItems();
         }
         else{
           this.alertService.presentToast("Please enter valid credentials");

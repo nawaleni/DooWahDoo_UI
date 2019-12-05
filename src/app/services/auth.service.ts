@@ -28,18 +28,14 @@ export class AuthService {
 
 login(email: any, password: any){
   let headers = new HttpHeaders({ responseType : 'text' });
-
   this.http.post('https://webapp-191120202122.azurewebsites.net/api/v1/login', {
     emailId: email, password: password
   },
-  {
-    responseType : 'json'
-  }
+  {responseType : 'json'}
   )
   .subscribe(
     data => {
       console.log(data);
-
       let userData: any = data;
       console.log("JSON: " + userData.Status);
       if (userData.Status != 'Success') {
@@ -47,7 +43,6 @@ login(email: any, password: any){
       }
       else
       {
-
         this.storage.setItem('userId', userData.userInfo.userProfile.userId)
         .then(
           () => {
@@ -64,17 +59,8 @@ login(email: any, password: any){
         this.navCtrl.navigateRoot('/dashboard');
         this.alertService.presentToast('Logged In');
       }
-
-
-
     },
     error => console.log(error),
-    () => {
-
-    }
-
-
-
   );
 }
   successfulSet() {
@@ -94,9 +80,42 @@ login(email: any, password: any){
 
 //register user
 
-register(user: User){
-  return true;
-  //this.http.post(this.env)
+register(email: any, password: any){
+  let headers = new HttpHeaders({ responseType : 'text' });
+  this.http.post('https://webapp-191120202122.azurewebsites.net/api/v1/login', {
+    emailId: email, password: password
+  },
+  {responseType : 'json'}
+  )
+  .subscribe(
+    data => {
+      console.log(data);
+      let userData: any = data;
+      console.log("JSON: " + userData.Status);
+      if (userData.Status != 'Success') {
+          this.alertService.presentToast(userData.Status);
+      }
+      else
+      {
+        this.storage.setItem('userId', userData.userInfo.userProfile.userId)
+        .then(
+          () => {
+            this.storage.getItem('userId')
+            .then(
+              (val) => console.log('Storage: ' + val),
+              error => console.log(error)
+            );
+          },
+          errorData => console.log(errorData)
+
+        );
+        this.userTransition.setTransition();
+        this.navCtrl.navigateRoot('/dashboard');
+        this.alertService.presentToast('Logged In');
+      }
+    },
+    error => console.log(error),
+  );
 }
 
 }
