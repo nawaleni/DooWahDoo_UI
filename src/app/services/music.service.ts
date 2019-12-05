@@ -144,9 +144,9 @@ export class MusicService {
         );
     }
 
-    public getTimeRemaining(): Observable<string> {
+    public getTimeRemaining(): Observable<any> {
 
-        return this.http.get('https://webapp-191120202122.azurewebsites.net/Karaoke/gig/1/3/getTimer', {responseType: 'text'});
+        return this.http.get<any>('https://webapp-191120202122.azurewebsites.net/Karaoke/gig/1/3/getTimer');
 
     }
 

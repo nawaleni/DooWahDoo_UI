@@ -20,7 +20,7 @@ export class DashboardPage implements OnInit {
 
   mySongName: string;
   mySongArtist: string;
-  myTimeRemaining: any;
+  myTimeRemaining: any = [];
 
   userQueue:any[] = [];
 
@@ -87,9 +87,13 @@ export class DashboardPage implements OnInit {
     );
 
     this.musicService.getTimeRemaining().subscribe(
-      (data:any) => {this.myTimeRemaining.hour = data.HH;
-                    this.myTimeRemaining.minute = data.MM;
-                    this.myTimeRemaining.second = data.SS},
+      (data:any) => {
+                    //this.myTimeRemaining = data.MM
+                    //console.log('Minutes: ' + data.MM);
+                     this.myTimeRemaining.hour = data.HH;
+                     this.myTimeRemaining.minute = data.MM;
+                     this.myTimeRemaining.second = data.SS
+                    },
       (e) => console.log(e)
     );
 
